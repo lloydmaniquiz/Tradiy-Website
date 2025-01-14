@@ -1,6 +1,7 @@
 import './App.css';
 import Header from './components/header';
 import SearchBar from './components/search-bar';
+import RecentSearches from './components/recent-searches';
 
 function App() {
   return (
@@ -11,8 +12,7 @@ function App() {
           <h2>Find trusted local trades in seconds</h2>
           <p>Your directory for verified tradespeople in Ayrshire & Glasgow.</p>
           <SearchBar />
-        </div>
-        <div>
+        <RecentSearches />
         </div>
       </main>
     </div>

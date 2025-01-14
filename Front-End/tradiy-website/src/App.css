@@ -49,7 +49,7 @@
 }
 
 .hero {
-  background-image: url("./landing-page-shallow.webp"); /* Replace with your image path */
+  background-image: url("./landing.png"); /* Replace with your image path */
   background-size: cover;  /* Ensure the image covers the entire element */
   background-position: center;  /* Center the image */
   background-repeat: no-repeat;  /* Prevent the image from repeating */
@@ -103,7 +103,7 @@
   padding: 1.445rem;
   border-radius: 50px 0px 0px 50px;
   border: none;
-  font-size: x-small;
+  font-size: small;
   font-family: "Hanken Grotesk", Arial;
   font-weight: 600;
   width: 100%; /* Full width */
@@ -113,7 +113,7 @@
   padding: 1.5rem;
   border-radius: 0px 50px 50px 0px;
   border: none;
-  font-size: x-small;
+  font-size: small;
   font-family: "Hanken Grotesk", Arial;
   font-weight: 600;
   width: 100%;
@@ -128,4 +128,127 @@
   padding: 1rem;
   border-radius: 50%;
   border: none;
+}
+
+.recent-searches {
+  margin-top: 2rem;
+  position: relative;
+  font-size: medium;
+}
+
+.dropdown-toggle {
+  display: flex;
+  justify-content: space-between; /* Align the text and arrow at both ends */
+  align-items: center;
+  background: #000839;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.5rem;
+  font-size: medium;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 55%; /* Adjust width as per your design */
+  transform: translateX(41%); /* Shift left by half its own width */
+}
+
+.dropdown-toggle:hover {
+  background: rgb(2, 15, 77);
+}
+
+.arrow {
+  font-size: 1.5rem; /* Make the arrow larger */
+  margin-left: 0.5rem; /* Space between the text and arrow */
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 45px;
+  left: 50%; /* Start at the center of the parent */
+  transform: translateX(-50%); /* Shift left by half its own width */
+  width: 55%; /* Set desired width for the dropdown */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  padding: 1rem;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+  text-align: left; /* Keeps content aligned to the left */
+  display: flex; /* Use flexbox to display results horizontally */
+  flex-wrap: wrap; /* Allow wrapping of items */
+  justify-content: flex-start; /* Align items to the left */
+}
+
+.dropdown-content .search-card {
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: space-between; /* Align content between the left and right */
+  align-items: center; /* Vertically align items */
+  width: calc(16%-5px); /* Three items per row, with spacing */
+  margin: 2px; /* Add spacing between items */
+  background: #F2F4FA;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-card:hover {
+  background: #e9ecef;
+}
+
+.search-info {
+  display: flex; /* Align items horizontally */
+  flex-grow: 1; /* Allow this to take the remaining space */
+  justify-content: flex-start; /* Keep elements aligned to the left */
+}
+
+.search-info p {
+  font-weight: bold;
+  font-size: large;
+  margin: 0;
+}
+
+.search-info span {
+  font-size: small;
+  color: #000839;
+  font-weight: 500;
+}
+
+.search-info small {
+  font-size: x-small;
+  color: #aaa;
+}
+
+.time-and-delete {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Full width for time and delete button */
+  align-items: center;
+}
+
+.time {
+  flex-grow: 1; /* Allow time to take remaining space */
+  text-align: left; /* Ensure the time is aligned to the left */
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #000839;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 10px; /* Space between time and delete button */
+  align-self: flex-start; /* Align the button at the top of the card */
+}
+
+.delete-btn:hover {
+  color: #000524;
+}
+
+.empty-message {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9rem;
+  padding: 1rem;
 }
