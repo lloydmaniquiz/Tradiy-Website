@@ -14,6 +14,9 @@
   font-weight: 700;
   font-family: "Hanken Grotesk", Arial;
   background-color: #000839;
+  position: relative; /* Keeps it in the document flow */
+  width: 100%; /* Ensure it spans the full width */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for separation */
 }
 
 .logo-nav {
@@ -49,11 +52,11 @@
 }
 
 .hero {
-  background-image: url("./landing.png"); /* Replace with your image path */
+  background-image: url("./images/landing.png"); /* Replace with your image path */
   background-size: cover;  /* Ensure the image covers the entire element */
   background-position: center;  /* Center the image */
   background-repeat: no-repeat;  /* Prevent the image from repeating */
-  height: 100vh;  /* Ensure the background takes up the full height of the viewport */
+  height: 900px;  /* Ensure the background takes up the full height of the viewport */
 }
 
 .hero-content {
@@ -62,20 +65,22 @@
   text-align: center;
   color: #fff;
   background: #fff(1, 0, 0, 0.6);
-  padding: 2rem;
   border-radius: 8px;
+  max-width: 1100px;
 }
 
 .hero-content h2 {
-  padding-top: 10% ;
-  font-size: 3rem;
+  padding-top: 15% ;
+  font-size: 6rem;
   color: #000839;
   font-family: "Hanken Grotesk", Arial;
+  line-height: 5rem;
 }
 
 .hero-content p {
-  font-size: 1.6rem;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  padding-top: 2rem;
+  margin-bottom: 4rem;
   font-weight: 700;
   font-family: "Hanken Grotesk", Arial;
   color: #000839;
@@ -95,7 +100,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  max-width: 800px; /* Adjust the size */
+  max-width: 1000px; /* Adjust the size */
   width: 100%;
 }
 
@@ -103,7 +108,7 @@
   padding: 1.445rem;
   border-radius: 50px 0px 0px 50px;
   border: none;
-  font-size: small;
+  font-size: medium;
   font-family: "Hanken Grotesk", Arial;
   font-weight: 600;
   width: 100%; /* Full width */
@@ -113,7 +118,7 @@
   padding: 1.5rem;
   border-radius: 0px 50px 50px 0px;
   border: none;
-  font-size: small;
+  font-size: medium;
   font-family: "Hanken Grotesk", Arial;
   font-weight: 600;
   width: 100%;
@@ -130,10 +135,17 @@
   border: none;
 }
 
+.search-button img {
+  width: 19px; /* Adjust size as needed */
+  height: 17px;
+}
+
 .recent-searches {
   margin-top: 2rem;
   position: relative;
-  font-size: medium;
+  font-size: small;
+  font-family: "Hanken Grotesk", Arial;
+  padding-bottom: 35%;
 }
 
 .dropdown-toggle {
@@ -144,11 +156,11 @@
   color: white;
   border: none;
   padding: 0.3rem 0.5rem;
-  font-size: medium;
+  font-size: large;
   border-radius: 8px;
   cursor: pointer;
-  width: 55%; /* Adjust width as per your design */
-  transform: translateX(41%); /* Shift left by half its own width */
+  max-width: 86%; /* Adjust width as per your design */
+  transform: translateX(8%); /* Shift left by half its own width */
 }
 
 .dropdown-toggle:hover {
@@ -162,35 +174,50 @@
 
 .dropdown-content {
   position: absolute;
-  top: 45px;
-  left: 50%; /* Start at the center of the parent */
-  transform: translateX(-50%); /* Shift left by half its own width */
-  width: 55%; /* Set desired width for the dropdown */
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 86%; /* Adjust width as needed */
   background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-height: 200px;
-  overflow-y: auto;
-  z-index: 10;
   padding: 1rem;
-  box-sizing: border-box; /* Ensures padding doesn't affect width */
-  text-align: left; /* Keeps content aligned to the left */
-  display: flex; /* Use flexbox to display results horizontally */
-  flex-wrap: wrap; /* Allow wrapping of items */
-  justify-content: flex-start; /* Align items to the left */
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap into rows */
+  max-height: calc(6 * 4rem); /* Approximate height for 6 items (adjust per item size) */
+  overflow: hidden; /* Hide extra content beyond 6 items */
+  text-align: left;
+}
+
+.dropdown-content::-webkit-scrollbar {
+  height: 8px; /* Set scrollbar height */
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background: #000839; /* Scrollbar color */
+  border-radius: 4px; /* Rounded edges */
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+  background: #03115f; /* Darker color on hover */
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+  margin: 5px;
 }
 
 .dropdown-content .search-card {
   display: flex; /* Use flexbox to align items horizontally */
   justify-content: space-between; /* Align content between the left and right */
   align-items: center; /* Vertically align items */
-  width: calc(16%-5px); /* Three items per row, with spacing */
-  margin: 2px; /* Add spacing between items */
+  margin: 0.3rem; /* Add spacing between items */
   background: #F2F4FA;
-  padding: 0.5rem;
+  padding: 0.6rem;
   border-radius: 4px;
   cursor: pointer;
+  width: 142px;
 }
 
 .search-card:hover {
@@ -198,6 +225,7 @@
 }
 
 .search-info {
+  font-family: "Hanken Grotesk", Arial;
   display: flex; /* Align items horizontally */
   flex-grow: 1; /* Allow this to take the remaining space */
   justify-content: flex-start; /* Keep elements aligned to the left */
@@ -205,17 +233,20 @@
 
 .search-info p {
   font-weight: bold;
+  font-family: "Hanken Grotesk", Arial;
   font-size: large;
   margin: 0;
 }
 
 .search-info span {
+  font-family: "Hanken Grotesk", Arial;
   font-size: small;
   color: #000839;
   font-weight: 500;
 }
 
 .search-info small {
+  font-family: "Hanken Grotesk", Arial;
   font-size: x-small;
   color: #aaa;
 }
@@ -238,7 +269,7 @@
   color: #000839;
   font-size: 1rem;
   cursor: pointer;
-  margin-left: 10px; /* Space between time and delete button */
+  margin-left: 35px; /* Space between time and delete button */
   align-self: flex-start; /* Align the button at the top of the card */
 }
 
@@ -251,4 +282,104 @@
   color: #aaa;
   font-size: 0.9rem;
   padding: 1rem;
+}
+
+/* Carousel Search */
+.carousel-combine {
+  background-color: #fff;
+  background-size: cover;  /* Ensure the image covers the entire element */
+  height: 900px;  /* Ensure the background takes up the full height of the viewport */
+}
+
+.recent-searches-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.carousel-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.carousel-container {
+  display: flex;
+  gap: 1rem;
+  overflow: hidden;
+  flex-wrap: nowrap;
+}
+
+.carousel-item-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.carousel-item-image {
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+  color: #000839;
+}
+
+.carousel-item-label {
+  font-size: 0.9rem;
+  color: #000839;
+  text-align: center;
+  font-family: "Hanken Grotesk", Arial;
+  font-weight: 700;
+}
+
+.carousel-item-button:hover .carousel-item-label {
+  color: #007bff; /* Add hover effect */
+}
+
+.carousel-button img {
+  width: 40px; /* Adjust size as needed */
+  height: 40px;
+}
+
+/* Triple-Image */
+
+.triple-image {
+  display: flex;
+  justify-content: center;
+}
+
+.image-item img {
+  width: 50%;
+  margin-top: 4rem;
+}
+
+
+.image-item {
+  text-align: center;
+}
+
+.image-text {
+  display: block;
+  margin-top: 1rem; /* Adjust as needed */
+  font-size: 1.5rem; /* Adjust as needed */
+  color: #2EC1C7; /* Adjust text color as needed */
+  font-family: "Hanken Grotesk", Arial;
+  font-weight: 800;
+  max-width: 250px;
+  margin-left: 65px;
+}
+
+.triple-image p{
+  font-weight: bold;
+  font-family: "Hanken Grotesk", Arial;
+  font-size: medium;
+  margin-left: 65px;
+  max-width: 250px;
+  margin-top: -13px;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import SearchIcon from '../images/search-white.png';
 
 const SearchBar = () => {
   return (
@@ -16,7 +17,9 @@ const SearchBar = () => {
             <option value="landscaping">Landscaping</option>
           </select>
           <input type="text" placeholder="What is your postcode?" />
-          <button>🔍</button>
+          <button className="search-button">
+            <img src={SearchIcon} alt='🔍'/>
+          </button>
         </div>
       </div>
   );

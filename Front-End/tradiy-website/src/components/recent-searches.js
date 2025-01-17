@@ -7,6 +7,9 @@ const RecentSearches = () => {
     { service: "Service B", postcode: "KA22 7HF", time: "4 weeks ago" },
     { service: "Service C", postcode: "KA22 7HF", time: "3 months ago" },
     { service: "Service D", postcode: "KA22 7HF", time: "5 months ago" },
+    { service: "Service E", postcode: "KA22 7HF", time: "5 months ago" },
+    { service: "Service F", postcode: "KA22 7HF", time: "5 months ago" },
+    { service: "Service G", postcode: "KA22 7HF", time: "5 months ago" },
   ]);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +22,6 @@ const RecentSearches = () => {
   // Handle clicking a search item
   const handleSearchClick = (search) => {
     alert(`You selected: ${search.service}, ${search.postcode}`);
-    // Optionally, update the input fields based on the selection
   };
 
   // Handle deleting a search item
@@ -27,6 +29,9 @@ const RecentSearches = () => {
     const updatedSearches = searches.filter((_, i) => i !== index);
     setSearches(updatedSearches);
   };
+
+  // Limit visible items to the first 6
+  const visibleSearches = searches.slice(0, 6);
 
   return (
     <div className="recent-searches">
@@ -36,8 +41,8 @@ const RecentSearches = () => {
       </div>
       {isOpen && (
         <div className="dropdown-content">
-          {searches.length > 0 ? (
-            searches.map((search, index) => (
+          {visibleSearches.length > 0 ? (
+            visibleSearches.map((search, index) => (
               <div className="search-card" key={index}>
                 <div
                   className="search-info"
@@ -51,7 +56,7 @@ const RecentSearches = () => {
                   <button
                     className="delete-btn"
                     onClick={(e) => {
-                      e.stopPropagation(); // Prevent the search click from being triggered when deleting
+                      e.stopPropagation();
                       handleDelete(index);
                     }}
                   >
