@@ -300,6 +300,8 @@
   justify-content: center;
   gap: 3rem;
   margin: 3rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .carousel-button {
@@ -308,16 +310,12 @@
   cursor: pointer;
 }
 
-.carousel-button:hover {
-  color: #000839;
-}
-
 .carousel-container {
   display: flex;
   gap: 2.5rem;
   overflow: hidden;
   flex-wrap: nowrap;
-  transition: transform 0.5s ease; /* Smooth transition effect */
+  position: relative;
 }
 
 .carousel-item-button {
@@ -328,14 +326,40 @@
   border: none;
   cursor: pointer;
   text-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
 }
 
-.carousel-item-image {
-  width: 50px; /* Adjust size as needed */
-  height: 50px; /* Adjust size as needed */
+.carousel-item-button img {
+  width: 50px;
+  height: 50px;
   object-fit: cover;
   margin-bottom: 0.5rem;
   color: #000839;
+  transition: transform 0.3s ease;
+}
+
+/* Scale effect on hover */
+.carousel-item-button img:hover {
+  transform: scale(1.1);
+}
+
+/* Scale effect for clicked item */
+.carousel-item-button.clicked {
+  transform: scale(1.2); /* Slightly bigger scale on click */
+  animation: bounce 0.3s ease-out; /* Add a bounce animation */
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .carousel-item-label {
@@ -347,17 +371,18 @@
 }
 
 .carousel-button img {
-  width: 40px; /* Adjust size as needed */
+  width: 40px;
   height: 40px;
-  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition effect */
+  transition: transform 0.3s ease, opacity 0.3s ease;
   border-radius: 50px;
 }
 
 .carousel-button img:hover {
-  transform: scale(1.2); /* Makes the image 20% larger */
-  opacity: 0.8; /* Slightly reduces opacity */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
+  transform: scale(1.2);
+  opacity: 0.8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
 /* Triple-Image */
 
 .triple-image {
@@ -656,12 +681,15 @@
   max-width: 1000px;
 }
 
-
 /* LANDING PAGE - REVIEWS */
+.reviews-wrapper h1{
+  font-size: xxx-large;
+}
+
 .reviews-section {
   margin: 2rem auto;
   padding: 2rem;
-  max-width: 1200px;
+  max-width: 1400px;
 }
 
 .review-card {
@@ -695,11 +723,155 @@
 }
 
 /* Swiper Pagination Styles */
-.swiper-pagination-bullet {
-  background: #1dbfcc;
+.review-slider-container {
+  max-width: 1250px;
+  margin: 20px auto;
+  padding: 20px;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  color: #1dbfcc;
+.slick-track {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-item {
+  padding: 30px;
+  background-color: #FDFEFF;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  height: 305px;
+  font-family: "Hanken Grotesk", Arial;
+  font-size: small;
+  margin-bottom: 60px;  /* Space between each review item */
+  max-width: 340px;
+  margin-top: 15px;
+}
+
+.review-item h3{
+  padding-top: 1rem;
+  font-size: medium;
+  font-weight: 400;
+}
+
+.review-item p{
+  font-size: medium;
+  font-weight: 700;
+}
+
+.rating {
+  margin-bottom: 10px;
+  font-size: 25px;  /* Adjust star size */
+}
+
+.review-slider-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.slick-dots {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+/* Custom Slick dot size */
+.slick-dots li button:before {
+  font-size: 20px !important; /* Increase dot size */
+  color: #E4E4E4 !important; /* Change dot color */
+  opacity: 1 !important; /* Ensure visibility */
+}
+
+/* Add margin between dots */
+.slick-dots li {
+  margin: 0 20px !important; /* Adjust the horizontal margin between the dots */
+}
+
+/* Active dot */
+.slick-dots li.slick-active button:before {
+  color: #000839 !important; /* Active dot color */
+}
+
+.prev-button, .next-button {
+  width: 50px !important;
+  height: 50px !important;
+  background-color: #E4E4E4;
+  border: none !important;
+  border-radius: 50px !important;
+  margin-left: 40px;  /* 20px margin to the left */
+  margin-right: 40px; /* 30px margin to the right */
+  transition: background-color 0.3s, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.prev-button:hover, .next-button:hover {
+  background-color: #000839;
+}
+
+/* FAQS */
+
+.faqs {
+  font-family: "Hanken Grotesk", Arial;
+  color: #000839;
+  display: flex; /* Use Flexbox for centering */
+  flex-direction: column ; /* Stack elements vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Optional: Centers text inside h1 and h3 */
+  padding-top: 8rem;
+}
+
+.faqs h3 {
+  font-size: xx-large;
+  padding-top: 8rem;
+}
+
+.faqs h1 {
+  font-size: 400%;
+  padding-bottom: 2rem;
+}
+
+.faqs p {
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.faqs p.open {
+  max-height: 200px; /* adjust based on content */
+  background-color: #000839;
+}
+
+.faqs {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.faq-container {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 15px;
+  transition: all 0.3s ease;  /* Smooth transition for hover effect */
+  justify-content: start; /* Center content vertically */
+  align-items: start; /* Center content horizontally */
+  text-align: start; /* Optional: Centers text inside h1 and h3 */
+}
+
+.faq-container:hover {
+  background-color: #f1f1f1;
+}
+
+.faq-container h2 {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+}
+
+.faq-container p {
+  font-size: 16px;
+  color: #555;
+  margin-top: 10px;
 }

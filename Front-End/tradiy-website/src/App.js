@@ -5,6 +5,7 @@ import RecentSearches from './components/recent-searches';
 import CarouselSearch from './components/carousel-search';
 import HowItWorks from './components/homeowners-lookup';
 import BenefitsTradespeople from './components/tradepeople-benefits';
+import Questions from './components/questions';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
         </div>
         <CarouselSearch />
         <HowItWorks />
-        <BenefitsTradespeople />
+        <BenefitsTradespeople /> 
+        <Questions />
       </main>
     </div>
   );

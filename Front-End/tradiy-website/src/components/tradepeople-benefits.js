@@ -4,6 +4,7 @@ import trust from "../images/benefits-set/free.png";
 import expert from "../images/benefits-set/expert.png"
 import connect from "../images/benefits-set/connect.png";
 import comingSoon from "../images/coming-soon.png";
+import ReviewSlider from "./landing-reviews";
 
 const BenefitsTradespeople = () => {
   return (
@@ -66,6 +67,7 @@ const BenefitsTradespeople = () => {
       <div className="reviews-wrapper">
         <h1>Don’t Just Take our Word for It</h1>
       </div>
+      <ReviewSlider />
     </div>
   );
 };
