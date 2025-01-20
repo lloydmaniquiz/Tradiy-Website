@@ -3,6 +3,8 @@ import Header from './components/header';
 import SearchBar from './components/search-bar';
 import RecentSearches from './components/recent-searches';
 import CarouselSearch from './components/carousel-search';
+import HowItWorks from './components/homeowners-lookup';
+import BenefitsTradespeople from './components/tradepeople-benefits';
 
 function App() {
   return (
@@ -14,8 +16,10 @@ function App() {
           <p>Your directory for verified tradespeople in Ayrshire & Glasgow.</p>
           <SearchBar />
           <RecentSearches />
-          <CarouselSearch />
         </div>
+        <CarouselSearch />
+        <HowItWorks />
+        <BenefitsTradespeople />
       </main>
     </div>
   );

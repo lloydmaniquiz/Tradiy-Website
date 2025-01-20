@@ -46,7 +46,6 @@
 /* Hero Section */
 .hero {
   height: 100vh;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -61,12 +60,13 @@
 
 .hero-content {
   height: 863px;
-  width: 1440px;
+  width: 100%; /* Use 100% for full-width or adjust as needed */
   text-align: center;
-  color: #fff;
-  background: #fff(1, 0, 0, 0.6);
   border-radius: 8px;
-  max-width: 1100px;
+  max-width: 1150px;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  margin: 0 auto; /* Center within the parent container if width is less than 100% */
 }
 
 .hero-content h2 {
@@ -145,7 +145,6 @@
   position: relative;
   font-size: small;
   font-family: "Hanken Grotesk", Arial;
-  padding-bottom: 35%;
 }
 
 .dropdown-toggle {
@@ -159,12 +158,13 @@
   font-size: large;
   border-radius: 8px;
   cursor: pointer;
-  max-width: 86%; /* Adjust width as per your design */
-  transform: translateX(8%); /* Shift left by half its own width */
+  max-width: 83%; /* Adjust width as per your design */
+  transform: translateX(10%); /* Shift left by half its own width */
+  transition: background-color 0.3s, transform 0.3s ease, opacity 0.3s ease;
 }
 
 .dropdown-toggle:hover {
-  background: rgb(2, 15, 77);
+  background: #2EC1C7;
 }
 
 .arrow {
@@ -177,7 +177,7 @@
   top: 50px;
   left: 50%;
   transform: translateX(-50%);
-  width: 86%; /* Adjust width as needed */
+  width: 83%; /* Adjust width as needed */
   background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -286,17 +286,20 @@
 
 /* Carousel Search */
 .carousel-combine {
+  text-align: center;
+  padding: 2rem;
   background-color: #fff;
-  background-size: cover;  /* Ensure the image covers the entire element */
-  height: 900px;  /* Ensure the background takes up the full height of the viewport */
+  color: #333;
+  font-family: Arial, sans-serif;
+  margin-bottom: 80px;
 }
 
 .recent-searches-carousel {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  margin: 1rem 0;
+  gap: 3rem;
+  margin: 3rem 0;
 }
 
 .carousel-button {
@@ -305,11 +308,16 @@
   cursor: pointer;
 }
 
+.carousel-button:hover {
+  color: #000839;
+}
+
 .carousel-container {
   display: flex;
-  gap: 1rem;
+  gap: 2.5rem;
   overflow: hidden;
   flex-wrap: nowrap;
+  transition: transform 0.5s ease; /* Smooth transition effect */
 }
 
 .carousel-item-button {
@@ -338,48 +346,360 @@
   font-weight: 700;
 }
 
-.carousel-item-button:hover .carousel-item-label {
-  color: #007bff; /* Add hover effect */
-}
-
 .carousel-button img {
   width: 40px; /* Adjust size as needed */
   height: 40px;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition effect */
+  border-radius: 50px;
 }
 
+.carousel-button img:hover {
+  transform: scale(1.2); /* Makes the image 20% larger */
+  opacity: 0.8; /* Slightly reduces opacity */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
+}
 /* Triple-Image */
 
 .triple-image {
   display: flex;
   justify-content: center;
+  gap: 7rem; /* Space between images */
+  margin-top: 3rem;
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
 }
-
-.image-item img {
-  width: 50%;
-  margin-top: 4rem;
-}
-
 
 .image-item {
   text-align: center;
+  max-width: 250px; /* Ensure uniform width */
+  padding: 1rem;
+}
+
+.image-item img {
+  width: 100%; /* Ensure images are responsive */
+  max-width: 180px; /* Adjust as needed */
+  margin-bottom: 1rem;
 }
 
 .image-text {
-  display: block;
-  margin-top: 1rem; /* Adjust as needed */
-  font-size: 1.5rem; /* Adjust as needed */
-  color: #2EC1C7; /* Adjust text color as needed */
-  font-family: "Hanken Grotesk", Arial;
+  font-size: 1.5rem;
+  font-family: "Hanken Grotesk", Arial, sans-serif;
   font-weight: 800;
-  max-width: 250px;
-  margin-left: 65px;
+  color: #2ec1c7;
+  margin-top: 1rem;
 }
 
-.triple-image p{
+.triple-image p {
+  font-family: "Hanken Grotesk", Arial, sans-serif;
   font-weight: bold;
-  font-family: "Hanken Grotesk", Arial;
-  font-size: medium;
-  margin-left: 65px;
+  font-size: 1rem;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+/* HOW IT WORKS */
+
+.how-it-works {
+  text-align: center;
+  padding: 5rem;
+  background-color: #f7f9fc;
+  color: #333;
+  font-family: "Hanken Grotesk", Arial, sans-serif;
+}
+
+.how-it-works h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #1f2a56;
+}
+
+.how-it-works p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  color: #000839;
+  font-weight: 500;
+}
+
+.how-it-works-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.how-it-works-content p{
+  margin-bottom: 10px;
+}
+
+.how-it-works-image {
+  border-radius: 8px;
+  height: 450px;
+}
+
+.step h3 {
+  font-size: 1.5rem;
+  color: #1f2a56;
+}
+
+.step p {
+  font-size: 1rem;
+  color: #000839;
+}
+
+.how-it-works-button {
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #000839;
+  font-weight: 500;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.how-it-works-button:hover {
+  background-color: #2EC1C7;
+  transform: scale(1.1); /* Makes the image 20% larger */
+  opacity: 0.8; /* Slightly reduces opacity */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between steps */
+}
+
+.step {
+  display: flex;
+  align-items: center; /* Vertically center-align the image and text */
+  gap: 20px; /* Space between the image and text */
+  text-align: left;
+}
+
+.step-image {
+  width: 60px;
+  height: 60px;
+}
+
+.step h3,
+.step p {
+  margin: 0; /* Remove default margins for h3 and p */
+}
+
+.step-text {
+  display: flex;
+  flex-direction: column; /* Keep h3 and p stacked vertically */
+}
+
+.step-text p {
+  max-width: 470px;
+}
+
+/* Benefits for Tradespeople */
+
+.benefits-tradespeople {
+  text-align: center;
+  background-color: #FFF;
+  font-family: "Hanken Grotesk", Arial, sans-serif;
+  color: #000839;
+  padding-top: 5rem;
+}
+
+.benefits-tradespeople h2 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #1f2a56;
+  padding-bottom: 1rem;
+}
+
+.shake-hands {
+  background-image: url("./images/benefits.png");
+  background-size: cover; /* Ensures the image covers the entire div */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents tiling */
+  height: 200px;  /* Ensure the background takes up the full height of the viewport */
+  display: flex; /* Enable flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.shake-hands h3{
+  color: #fff;
+  background-color: #000839;
+  font-size: xx-large;
+  border-radius: 10px;
+  text-align: center;
+  padding: 3px 10px 3px 10px;
+}
+
+.benefits-list h4{
+  padding-top: 3rem;
+  font-weight: 500;
+  padding-bottom: 1rem;
+  font-size: x-large;
+}
+
+.benefits-wrapper {
+  display: flex;
+}
+
+.benefits-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.benefits-set {
+  background-color: #F2F4FA;
+  padding: 1.5rem;
+  border-radius: 20px;
   max-width: 250px;
-  margin-top: -13px;
+  text-align: center; /* Center text inside each card */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+}
+
+.benefits-set img{
+  width: 110px;
+  padding-bottom: 10px;
+}
+
+.benefits-set h3 {
+  justify-content: center;
+  font-size: x-large;
+  margin: 0.5rem 0;
+  color: #000839;
+}
+
+.benefits-set p {
+  font-size: small;
+  color: #000839;
+  align-items: center;
+  font-weight: 500;
+}
+
+.diy-button {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  color: white;
+  background-color: #000839;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s ease, opacity 0.3s ease;
+  font-weight: 520;
+  margin-bottom: 6rem;
+}
+
+.diy-button:hover {
+  transform: scale(1.1);
+  background-color: #2EC1C7;
+}
+
+
+/* Comin-Soon APP */
+.coming-soon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  margin-bottom: 5rem;
+}
+
+.overlay-container {
+  position: relative;
+  width: 100%;
+  max-width: 1100px; /* Adjust width as needed */
+  border-radius: 12px; /* Rounded corners */
+  overflow: hidden; /* Ensures rounded corners work with child elements */
+  margin-bottom: 5rem;
+}
+
+.overlay-container img {
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-text {
+  color: white;
+  text-align: start;
+  padding: 1rem;
+}
+
+.overlay-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.overlay-text p {
+  font-size: 1.35rem;
+  max-width: 1000px;
+}
+
+
+/* LANDING PAGE - REVIEWS */
+.reviews-section {
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 1200px;
+}
+
+.review-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stars {
+  color: #1dbfcc; /* Adjust color for stars */
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.review-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.review-author {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Swiper Pagination Styles */
+.swiper-pagination-bullet {
+  background: #1dbfcc;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #1dbfcc;
 }

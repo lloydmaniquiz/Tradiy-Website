@@ -95,7 +95,7 @@ const CarouselSearch = () => {
           <div className="image-item">
             <img src={fastAndEast} alt="Fast and Easy Search" />
             <span className="image-text">Fast and Easy Search</span>
-            <p style={{marginTop: '18px'}}>With Tradiy, you can find the right tradesperson quickly, and it’s 100% free to browse.</p>
+            <p>With Tradiy, you can find the right tradesperson quickly, and it’s 100% free to browse.</p>
           </div>
           <div className="image-item">
             <img src={supportBusiness} alt="Support Local Business" />
