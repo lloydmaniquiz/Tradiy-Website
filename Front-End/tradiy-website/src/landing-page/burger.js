@@ -3,8 +3,6 @@ import "../App.css"; // Import the CSS for styling
 
 const BurgerDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isHomeownersOpen, setIsHomeownersOpen] = useState(true); // Set initial state to true
-  const [isTradespeopleOpen, setIsTradespeopleOpen] = useState(true); // Set initial state to true
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -25,24 +23,18 @@ const BurgerDropdown = () => {
             <div className="divider"></div>
             <li className="has-submenu">
               HOMEOWNERS
-              <div className={`submenu-toggle ${isHomeownersOpen ? "open" : ""}`} />
-              {isHomeownersOpen && (
-                <ul className="submenu">
-                  <li><a href="#are-you-homeowner">Are you a homeowner?</a></li>
-                  <li><a href="#find-trade">Find a Trade</a></li>
-                </ul>
-              )}
+              <ul className="submenu">
+                <li><a href="#are-you-homeowner">Are you a homeowner?</a></li>
+                <li><a href="#find-trade">Find a Trade</a></li>
+              </ul>
             </li>
             <li className="has-submenu">
               TRADESPEOPLE
-              <div className={`submenu-toggle ${isTradespeopleOpen ? "open" : ""}`} />
-              {isTradespeopleOpen && (
-                <ul className="submenu">
-                  <li><a href="#are-you-tradespeople">Are you a tradesperson?</a></li>
-                  <li><a href="#tradiy-benefits">Tradiy Benefits</a></li>
-                  <li><a href="#be-a-tradiy">Be a Tradiy Trader</a></li>
-                </ul>
-              )}
+              <ul className="submenu">
+                <li><a href="#are-you-tradespeople">Are you a tradesperson?</a></li>
+                <li><a href="#tradiy-benefits">Tradiy Benefits</a></li>
+                <li><a href="#be-a-tradiy">Be a Tradiy Trader</a></li>
+              </ul>
             </li>
             <div className="divider"></div>
             <li><a href="#blog">Blog</a></li>

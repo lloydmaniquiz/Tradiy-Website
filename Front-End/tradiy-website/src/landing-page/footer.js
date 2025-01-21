@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import tradiyCYAN from "../images/footer/tradiy-cyan.png";
 import telephone from "../images/footer/telephone.png";
 import mail from "../images/footer/mail.png";
