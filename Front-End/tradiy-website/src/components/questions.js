@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../App.css";
 
 const Questions = () => {
-  // Create an array of questions with their respective answers
   const questionsData = [
     { question: "What is Tradiy?", answer: "Tradiy is an online directory connecting homeowners in Scotland with verified tradespeople. It’s designed to make finding trusted professionals for home projects quick, simple, and stress-free." },
     { question: "How does Tradiy ensure tradespeople are reliable?", answer: "All tradespeople listed on Tradiy are personally vetted by our team. They must provide valid ID, public liability insurance, and relevant certifications to be verified." },
@@ -11,17 +10,13 @@ const Questions = () => {
     { question: "Can homeowners leave reviews?", answer: "Currently, our team personally vets all tradespeople. In the future, homeowners will be able to leave reviews to further help others make informed decisions." }
   ];
 
-  // State to track which questions are open
-  const [openIndexes, setOpenIndexes] = useState([]);  // Track an array of open indices
+  const [openIndexes, setOpenIndexes] = useState([]);
 
-  // Toggle the visibility of the answer for a specific question
   const toggleDropdown = (index) => {
     setOpenIndexes((prevIndexes) => {
-      // If the question is already open, close it (remove index from openIndexes)
       if (prevIndexes.includes(index)) {
-        return prevIndexes.filter(i => i !== index);
+        return prevIndexes.filter((i) => i !== index);
       }
-      // Otherwise, open the question (add index to openIndexes)
       return [...prevIndexes, index];
     });
   };
@@ -31,16 +26,23 @@ const Questions = () => {
       <h3>Got more questions? Let’s get them answered!</h3>
       <h1>Frequently Asked Questions</h1>
       {questionsData.map((item, index) => (
-        <div key={index} className="faq-container">  {/* Added container class */}
-          <h2 
-            onClick={() => toggleDropdown(index)} 
+        <div key={index} className="faq-container">
+          <div
+            className={`faq-header ${openIndexes.includes(index) ? "open" : ""}`}
+            onClick={() => toggleDropdown(index)}
             style={{ cursor: "pointer" }}
+            aria-expanded={openIndexes.includes(index)}
           >
-            {item.question}
-          </h2>
-          
+            <h2>{item.question}</h2>
+            {/* Add icon for + and - */}
+            <span className="faq-icon">
+              {openIndexes.includes(index) ? "-" : "+"}
+            </span>
+          </div>
           {openIndexes.includes(index) && (
-            <p>{item.answer}</p>
+            <div className="faq-content">
+              <p>{item.answer}</p>
+            </div>
           )}
         </div>
       ))}

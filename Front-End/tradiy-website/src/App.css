@@ -19,24 +19,109 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for separation */
 }
 
-.logo-nav {
+.logo-burger {
   display: flex;
+  justify-content: space-between; /* Distribute items to the left and right */
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: -6rem;
+  padding: 0 5rem; /* Add 1rem padding on both sides of the container */
 }
 
-.logo {
-  height: 0; /* Let height adjust according to the aspect ratio */
-  width: 160px; /* Adjust the width to make the logo smaller */
+.logo-burger img {
+  width: 160px;
+  flex-shrink: 0; /* Prevent image from shrinking */
+  margin-right: 5rem; /* Optional: Add space between the logo and the burger */
 }
 
-.menu-icon {
+.burger-dropdown {
+  flex-grow: 1; /* Make the burger dropdown take up remaining space */
+  display: flex;
+  justify-content: flex-end; /* Align burger dropdown to the right */
+  margin-left: 5rem; /* Optional: Add space between the burger dropdown and the edge */
 }
 
-.logo img {
-  width: 100%; /* Ensures the image fills the container (if needed) */
-  height: auto; /* Keeps the aspect ratio */
-  padding-top: 25px;
-  padding-left: 40px;
+/* Burger icon button */
+.burger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; /* Centers the burger lines */
+  width: 65px; /* Adjusted width */
+  height: 50px; /* Adjusted height */
+  padding: 1.05rem; /* Padding inside the container */
+  border: none;
+  cursor: pointer;
+  border-radius: 30px; /* Rounded corners for a modern look */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
 }
+
+/* Lines in the burger icon */
+.burger-line {
+  width: 100%;
+  height: 3px;
+  background-color: #000839;;
+  transition: 0.3s ease;
+}
+
+/* Transformations for the open state */
+.burger-line.open:nth-child(1) {
+  transform: rotate(45deg);
+  transform-origin: top left;
+  color: #000839;
+}
+
+.burger-line.open:nth-child(2) {
+  opacity: 0;
+  color: #000839;
+}
+
+.burger-line.open:nth-child(3) {
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  color: #000839;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  position: absolute;
+  top: 40px; /* Adjust to space below the burger icon */
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  z-index: 10;
+  min-width: 150px; /* Ensure a consistent width */
+}
+
+/* List inside the dropdown menu */
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dropdown menu items */
+.dropdown-menu ul li {
+  padding: 8px 16px;
+}
+
+.dropdown-menu ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for menu items */
+.dropdown-menu ul li a:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
 
 .user-icon i {
   font-size: 1.5rem;
@@ -67,6 +152,7 @@
   align-items: center; /* Center vertically */
   justify-content: center; /* Center horizontally */
   margin: 0 auto; /* Center within the parent container if width is less than 100% */
+  padding-top: 3rem;
 }
 
 .hero-content h2 {
@@ -96,22 +182,62 @@
 }
 
 /* Dropdown and input styling */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  margin-left: 50px;
+}
+
+/* Dropdown and input styling */
 .search-bar .input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  max-width: 1000px; /* Adjust the size */
+  max-width: 1000px;
+  width: 100%;
+}
+
+.search-bar .input-wrapper .dropdown-wrapper {
+  position: relative;
   width: 100%;
 }
 
 .search-bar .dropdown {
-  padding: 1.445rem;
+  appearance: none; /* Remove default dropdown arrow */
+  padding: 1.5rem;
   border-radius: 50px 0px 0px 50px;
   border: none;
   font-size: medium;
   font-family: "Hanken Grotesk", Arial;
   font-weight: 600;
-  width: 100%; /* Full width */
+  width: 100%;
+}
+
+.search-bar .dropdown-wrapper .custom-dropdown-icon {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  height: 10px;
+  pointer-events: none; /* Ensure the dropdown works despite the custom icon */
+}
+
+.search-bar .dropdown-wrapper .dropdown-divider {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  height: 45px;
+  width: 2px;
+  pointer-events: none; /* Ensure the dropdown works despite the custom icon */
+}
+
+.search-bar .divider {
+  height: 80%;
+  width: 3px;
+  background-color: #BBBCC0; /* Divider color */
+  margin: 0 10px; /* Adjust spacing between elements */
 }
 
 .search-bar input {
@@ -136,9 +262,10 @@
 }
 
 .search-button img {
-  width: 19px; /* Adjust size as needed */
+  width: 19px;
   height: 17px;
 }
+
 
 .recent-searches {
   margin-top: 2rem;
@@ -154,12 +281,12 @@
   background: #000839;
   color: white;
   border: none;
-  padding: 0.3rem 0.5rem;
+  padding: 0.6rem 0.8rem;
   font-size: large;
   border-radius: 8px;
   cursor: pointer;
   max-width: 83%; /* Adjust width as per your design */
-  transform: translateX(10%); /* Shift left by half its own width */
+  transform: translateX(10.4%); /* Shift left by half its own width */
   transition: background-color 0.3s, transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -172,11 +299,15 @@
   margin-left: 0.5rem; /* Space between the text and arrow */
 }
 
+.dropdown-toggle img{
+  width: 15px;
+}
+
 .dropdown-content {
   position: absolute;
   top: 50px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-49.9%);
   width: 83%; /* Adjust width as needed */
   background: white;
   border: 1px solid #ddd;
@@ -735,7 +866,11 @@
 }
 
 .review-item {
-  padding: 30px;
+  position: relative;
+  padding-top: 2rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
   background-color: #FDFEFF;
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -747,10 +882,14 @@
   margin-top: 15px;
 }
 
-.review-item h3{
-  padding-top: 1rem;
+.review-item h3 {
   font-size: medium;
   font-weight: 400;
+  position: absolute; /* Position the h3 at the bottom */
+  bottom: 0; /* Align to the bottom of the container */
+  width: 100%; /* Make sure the h3 spans the full width of its parent */
+  padding-right: 4rem;
+  padding-bottom: 1.5rem;
 }
 
 .review-item p{
@@ -803,6 +942,7 @@
   margin-left: 40px;  /* 20px margin to the left */
   margin-right: 40px; /* 30px margin to the right */
   transition: background-color 0.3s, transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
 }
 
 .prev-button:hover, .next-button:hover {
@@ -837,41 +977,262 @@
   overflow: hidden;
 }
 
-.faqs p.open {
-  max-height: 200px; /* adjust based on content */
-  background-color: #000839;
-}
-
 .faqs {
-  max-width: 1000px;
+  font-family: "Hanken Grotesk", Arial;
+  color: #000839;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem; /* Add padding for smaller screens */
+  max-width: 1200px; /* Restrict max width */
   margin: 0 auto;
-  padding: 20px;
+  margin-bottom: 5rem;
 }
 
 .faq-container {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  max-width: 1000px;
   margin-bottom: 15px;
-  padding: 15px;
-  transition: all 0.3s ease;  /* Smooth transition for hover effect */
-  justify-content: start; /* Center content vertically */
-  align-items: start; /* Center content horizontally */
-  text-align: start; /* Optional: Centers text inside h1 and h3 */
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  width: 90%;
+  text-align: start;
 }
 
-.faq-container:hover {
-  background-color: #f1f1f1;
+/* FAQ Header */
+.faq-header {
+  background-color: #fff;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+  padding-left: 1.5rem; /* Adjust for smaller screens */
+  border: 3px solid #e4e4e4;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Make it adapt to screen width */
 }
 
-.faq-container h2 {
-  font-size: 18px;
-  color: #333;
+.faq-header.open {
+  background-color: #000839;
+  border: transparent;
+  color: white;
+}
+
+.faq-icon {
+  font-size: 1.5rem; /* Adjust icon size */
   font-weight: bold;
+  color: inherit; /* Match the color of the header */
+  transition: color 0.3s ease; /* Smooth transition for color */
 }
 
-.faq-container p {
-  font-size: 16px;
-  color: #555;
-  margin-top: 10px;
+.faq-content {
+  margin-top: 6px;
+  background-color: #ECEDF2;
+  padding: 2rem;
+  transition: background-color 0.3s ease;
+  font-size: large;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+/* LOCAL TRADES */
+
+.local-trades-dropdown-container {
+  margin-bottom: 2rem;
+}
+
+.local-trades-dropdown {
+  background-color: #F2F4FA;
+  font-family: "Hanken Grotesk", Arial;
+  font-size: x-large;
+  font-weight: 600;
+  color: #000839;
+  border: none;
+  padding: 10px 20px;
+  padding-left: 1.5rem; /* Adjust for smaller screens */
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%; /* Use percentage to make it responsive */
+  max-width: 1000px; /* Optional: Limit the maximum width */
+  margin: 0 auto; /* Center horizontally */
+  margin-bottom: 10px;
+  transition: background-color 0.3s, transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* When the dropdown is open, change the background color */
+.local-trades-dropdown.open {
+  background-color: #2EC1C7; /* New background color when open */
+  color: #fff;
+}
+
+.local-trades-dropdown li{
+  display: flex;
+}
+
+.local-trades-dropdown ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Display list items side by side */
+  gap: 5rem; /* Adjust the gap between items */
+}
+
+.local-trades-dropdown li {
+  padding: 8px 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.local-trades-dropdown li:hover {
+  background-color: #E1E3F1;
+  border-radius: 50px;
+}
+
+.local-trades-dropdown img {
+  width: 15px;
+}
+
+/* FOOTER */
+
+.footer {
+  margin-top: 5rem;
+  background-color: #000839;
+  color: #ecf0f1;
+  padding: 20px 0;
+  font-family: "Hanken Grotesk", Arial;
+  display: flex;
+  justify-content: center; /* Center the footer content horizontally */
+  align-items: center; /* Align items vertically if needed */
+  flex-direction: column; /* Stack footer sections vertically */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center; /* Center the footer sections horizontally */
+  padding: 0 20px;
+  flex-wrap: wrap;
+  max-width: 2500px;
+  width: 90%; /* Optional: Set a max-width to prevent it from stretching too wide */
+  gap: 10rem;
+}
+
+.footer-section {
+  padding-top: 4rem;
+  max-width: 900px;
+  width: 250px;
+  margin-bottom: 20px;
+  text-align: start; /* Center text inside each section */
+}
+
+.footer-section h4 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.footer-section img{
+  width: 8rem;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding-top: 0.5rem;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  color: #F2F4FA; /* Light text color */
+  text-decoration: underline; /* Always underlined */
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline; /* Keep the underline on hover */
+}
+
+.social-links {
+  list-style-type: none;
+  padding: 0;
+  display: flex; /* Align items horizontally */
+  gap: 2rem; /* Add space between the social media links */
+  justify-content: start; /* Center the social links horizontally */
+  margin-top: 3rem;
+}
+
+.social-links li {
+  margin-bottom: 0;
+}
+
+.social-links li a {
+  color: #ecf0f1;
+  font-size: 1.5rem; /* Adjust size if needed */
+}
+
+.social-links li a:hover {
+  color: #2EC1C7; /* Optional: Change color on hover */
+}
+
+.contact-us ul {
+  padding-bottom: 3rem;
+}
+
+.contact-us li img{
+  width: 15px;
+}
+
+.footer-bottom {
+  text-align: start;
+  padding-top: 20px;
+  background-color: #34495e;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.sticky-header {
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.sticky-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.sticky-header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.sticky-header nav ul li {
+  margin: 0;
+}
+
+.sticky-header nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
 }

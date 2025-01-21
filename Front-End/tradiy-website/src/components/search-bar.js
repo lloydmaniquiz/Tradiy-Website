@@ -1,11 +1,14 @@
 import React from "react";
 import "../App.css";
 import SearchIcon from '../images/search-white.png';
+import SearchDropdown from "../images/search-dropdown.png";
+import Divider from "../images/divider.png";
 
 const SearchBar = () => {
   return (
     <div className="search-bar">
-        <div className="input-wrapper">
+      <div className="input-wrapper">
+        <div className="dropdown-wrapper">
           <select defaultValue="" className="dropdown">
             <option value="" disabled>
               What service do you need?
@@ -16,12 +19,15 @@ const SearchBar = () => {
             <option value="painting">Painting</option>
             <option value="landscaping">Landscaping</option>
           </select>
-          <input type="text" placeholder="What is your postcode?" />
-          <button className="search-button">
-            <img src={SearchIcon} alt='🔍'/>
-          </button>
+          <img src={SearchDropdown} alt="Dropdown" className="custom-dropdown-icon" />
+          <img src={Divider} alt="Dropdown" className="dropdown-divider" />
         </div>
+        <input type="text" placeholder="What is your postcode?" />
+        <button className="search-button">
+          <img src={SearchIcon} alt='🔍'/>
+        </button>
       </div>
+    </div>
   );
 };
 

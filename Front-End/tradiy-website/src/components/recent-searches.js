@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
+import dropDownOpen from "../images/up-white.png";
+import dropDownClosed from "../images/down-white.png";
 
 const RecentSearches = () => {
   const [searches, setSearches] = useState([
@@ -37,7 +39,11 @@ const RecentSearches = () => {
     <div className="recent-searches">
       <div className="dropdown-toggle" onClick={toggleDropdown}>
         <span>Recent searches:</span>
-        <span className="arrow">{isOpen ? "↑" : "↓"}</span>
+        <img
+          className="dropdown-arrow"
+          src={isOpen ? dropDownOpen : dropDownClosed} // Use images for the open/closed state
+          alt="dropdown arrow"
+        />
       </div>
       {isOpen && (
         <div className="dropdown-content">
