@@ -35,10 +35,7 @@
 }
 
 .burger-dropdown {
-  flex-grow: 1; /* Make the burger dropdown take up remaining space */
-  display: flex;
-  justify-content: flex-end; /* Align burger dropdown to the right */
-  margin-left: 5rem; /* Optional: Add space between the burger dropdown and the edge */
+  position: relative; /* Needed to position the dropdown inside the parent */
 }
 
 /* Burger icon button */
@@ -53,7 +50,8 @@
   border: none;
   cursor: pointer;
   border-radius: 30px; /* Rounded corners for a modern look */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Smooth hover effect */
+  background-color: #ECEDF2;
 }
 
 /* Lines in the burger icon */
@@ -66,7 +64,7 @@
 
 /* Transformations for the open state */
 .burger-line.open:nth-child(1) {
-  transform: rotate(45deg);
+  transform: rotate(28deg);
   transform-origin: top left;
   color: #000839;
 }
@@ -77,7 +75,7 @@
 }
 
 .burger-line.open:nth-child(3) {
-  transform: rotate(-45deg);
+  transform: rotate(-25deg);
   transform-origin: bottom left;
   color: #000839;
 }
@@ -85,43 +83,66 @@
 /* Dropdown menu styling */
 .dropdown-menu {
   position: absolute;
-  top: 40px; /* Adjust to space below the burger icon */
+  top: 55px; /* Adjust to space below the burger icon */
   right: 0;
-  background-color: #fff;
+  background-color: #FDFEFF;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px 0;
   z-index: 10;
-  min-width: 150px; /* Ensure a consistent width */
+  min-width: 320px; /* Ensure a consistent width */
+  font-family: "Hanken Grotesk", Arial;
+  font-size: large;
+  font-weight: 600;
 }
 
 /* List inside the dropdown menu */
 .dropdown-menu ul {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0;  
+}
+
+.submenu li a {
+  text-decoration: none;
+  color: #000839; /* Set color here for submenu links */
 }
 
 /* Dropdown menu items */
 .dropdown-menu ul li {
-  padding: 8px 16px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.divider {
+  height: 2px;
+  background-color: #000839;
+  width: 80%; /* Set width to 80% */
+  margin: 5px auto; /* Center the divider and add space above and below */
 }
 
 .dropdown-menu ul li a {
   text-decoration: none;
-  color: #333;
+  color: #000839;
   font-size: 14px;
   display: block;
+  padding: 0.8rem;
   transition: background-color 0.3s ease;
 }
 
 /* Hover effect for menu items */
 .dropdown-menu ul li a:hover {
-  background-color: #f0f0f0;
+  background-color: #F2F4FA;
+  border-radius: 10px;
   color: #000;
 }
 
+.has-submenu {
+  color: #2EC1C7;
+  padding-top: 0.8rem;
+  margin: 15px;
+}
 
 .user-icon i {
   font-size: 1.5rem;
@@ -177,15 +198,6 @@
 .search-bar {
   display: flex;
   justify-content: center;
-  margin-top: 1.5rem;
-  margin-left: 50px;
-}
-
-/* Dropdown and input styling */
-.search-bar {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
   margin-left: 50px;
 }
 
@@ -208,6 +220,9 @@
   padding: 1.5rem;
   border-radius: 50px 0px 0px 50px;
   border: none;
+  border-top: 2px solid #BBBCC0;    /* Top border */
+  border-left: 2px solid #BBBCC0;   /* Left border */
+  border-bottom: 2px solid #BBBCC0; /* Bottom border */
   font-size: medium;
   font-family: "Hanken Grotesk", Arial;
   font-weight: 600;
@@ -244,6 +259,9 @@
   padding: 1.5rem;
   border-radius: 0px 50px 50px 0px;
   border: none;
+  border-top: 2px solid #BBBCC0;    /* Top border */
+  border-right: 2px solid #BBBCC0;   /* Left border */
+  border-bottom: 2px solid #BBBCC0; /* Bottom border */
   font-size: medium;
   font-family: "Hanken Grotesk", Arial;
   font-weight: 600;
@@ -1199,19 +1217,21 @@
 }
 
 .sticky-header {
-  height: 100px;
+  height: 80px;
+  display: flex;  
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #ffffff;
+  padding: 10px 20px;
+  background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: transform 0.3s ease;
+  transition: top 0.5s ease-in-out;
 }
 
 .sticky-header h1 {
@@ -1235,4 +1255,31 @@
   text-decoration: none;
   color: #333;
   font-weight: 500;
+}
+
+.sticky-header .search-bar {
+  width: 100%;
+  justify-content: center; 
+  transform: scale(0.8);
+  margin-left: 200px;
+}
+
+.sticky-header .tradiy-logo {
+  padding: 1rem;
+  width: 150px;
+}
+
+.sticky-header p{
+  font-family: "Hanken Grotesk", Arial;
+  font-size: medium;
+  color: #000839;
+  font-weight: 600;
+  align-content: center;
+}
+
+.sticky-burger-wrapper {
+  display: flex;
+  width: 400px;
+  padding-right: 3rem;
+  gap: 1rem;
 }

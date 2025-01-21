@@ -1,12 +1,13 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import "../App.css";
 import SearchIcon from '../images/search-white.png';
 import SearchDropdown from "../images/search-dropdown.png";
 import Divider from "../images/divider.png";
 
-const SearchBar = () => {
+// Forward the ref to the root div of SearchBar component
+const SearchBar = forwardRef((props, ref) => {
   return (
-    <div className="search-bar">
+    <div className="search-bar" ref={ref}>
       <div className="input-wrapper">
         <div className="dropdown-wrapper">
           <select defaultValue="" className="dropdown">
@@ -29,6 +30,6 @@ const SearchBar = () => {
       </div>
     </div>
   );
-};
+});
 
 export default SearchBar;
