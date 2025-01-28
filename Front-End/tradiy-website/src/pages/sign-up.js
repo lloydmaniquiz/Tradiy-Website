@@ -1,11 +1,43 @@
 import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaCheckCircle } from "react-icons/fa";
 import "../styles/SignUp.css"
 
 export default function SignUp() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [role, setRole] = useState("Homeowner");
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [passwordValid, setPasswordValid] = useState({
+    length: false,
+    upperLower: false,
+    specialChar: false,
+  });
+  const [passwordMatch, setPasswordMatch] = useState(true);
+  const [isTouched, setIsTouched] = useState(false); // Track if the user has touched the confirm password field
+
+  const handleNewPasswordChange = (e) => {
+    const password = e.target.value;
+    setNewPassword(password);
+  
+    // Validate password
+    const valid = {
+      length: password.length >= 8,
+      upperLower: /[a-z]/.test(password) && /[A-Z]/.test(password),
+      specialChar: /[!@#$%^&*]/.test(password),
+    };
+    console.log(valid); // Log the validity state for debugging
+    setPasswordValid(valid);
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    const confirmPasswordInput = e.target.value;
+    setConfirmPassword(confirmPasswordInput); // Update confirmPassword first
+
+    // Check if passwords match after confirmPassword state is updated
+    setPasswordMatch(newPassword === confirmPasswordInput);
+    setIsTouched(true); // Mark the field as touched when the user types
+  };
 
   return (
     <div className="signup-container">
@@ -53,6 +85,8 @@ export default function SignUp() {
                 type={passwordVisible ? "text" : "password"}
                 placeholder="Password"
                 className="signup-input-field"
+                value={newPassword}
+                onChange={handleNewPasswordChange}
               />
               <button
                 type="button"
@@ -62,12 +96,27 @@ export default function SignUp() {
                 {passwordVisible ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
+            <div className="reset-password-password-checker">
+              <ul>
+                <li className={passwordValid.length ? 'valid' : 'invalid'}>
+                  <FaCheckCircle /> Password must be at least 8 characters
+                </li>
+                <li className={passwordValid.upperLower ? 'valid' : 'invalid'}>
+                  <FaCheckCircle /> Include both uppercase and lowercase letters
+                </li>
+                <li className={passwordValid.specialChar ? 'valid' : 'invalid'}>
+                  <FaCheckCircle /> Contain at least one special character (e.g., !, @, #, $, %)
+                </li>
+              </ul>
+            </div>
 
             <div className="signup-input-group">
               <input
                 type={confirmPasswordVisible ? "text" : "password"}
                 placeholder="Confirm Password"
                 className="signup-input-field"
+                value={confirmPassword}
+                onChange={handleConfirmPasswordChange}
               />
               <button
                 type="button"
@@ -78,7 +127,17 @@ export default function SignUp() {
               </button>
             </div>
 
-            <button className="signup-button">
+            {/* Only show the match message if both passwords are not empty */}
+            {isTouched && newPassword && confirmPassword && (
+              <p style={{ color: passwordMatch ? 'green' : 'red' }} className="signup-password-match">
+                {passwordMatch ? 'Passwords match!' : 'Passwords do not match!'}
+              </p>
+            )}
+
+            <button
+              className="signup-button"
+              disabled={!Object.values(passwordValid).every(Boolean) || !passwordMatch}
+            >
               Sign Up
             </button>
 

@@ -164,3 +164,35 @@
 .signup-login-link:hover {
     text-decoration: underline;
 }
+
+.sign-up-password-checker {
+    font-size: 6rem !important;
+    color: gray !important;
+    width: 454px !important;
+    margin: 0 auto !important;
+    margin-bottom: 1.7rem !important;
+}
+  
+.sign-up-password-checker ul {
+    margin: 0 !important;
+    padding-left: 0 !important;
+}
+  
+.sign-up-password-checker li {
+    display: flex !important;
+    align-items: center !important;
+    margin: 5px 0 !important;
+}
+  
+.sign-up-password-checker li.valid {
+    color: green !important;
+}
+  
+.sign-up-password-checker li.invalid {
+    color: gray !important;
+}
+  
+.sign-up-password-checker li svg {
+    margin-right: 10px !important;
+    color: inherit !important; /* Ensures color changes based on validity */
+}
