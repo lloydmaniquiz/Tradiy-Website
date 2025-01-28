@@ -18,8 +18,8 @@ const BurgerDropdown = () => {
       {isOpen && (
         <div className="dropdown-menu">
           <ul>
-            <li><a href="#login">Login</a></li>
-            <li><a href="#signup">Sign Up</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/sign-up">Sign Up</a></li>
             <div className="divider"></div>
             <li className="has-submenu">
               HOMEOWNERS

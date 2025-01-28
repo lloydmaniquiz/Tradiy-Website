@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'; // Import useLocation
 import Header from './landing-page/header';
 import StickyHeader from './landing-page/sticky-header'; // New StickyHeader component
 import SearchBar from './landing-page/search-bar'; // Updated SearchBar
@@ -11,10 +12,15 @@ import Questions from './landing-page/questions';
 import Divider from './landing-page/divider';
 import LocalTrades from './landing-page/local-trades';
 import Footer from './landing-page/footer';
+import Login from './pages/login'; // Import Login component
+import SignUp from './pages/sign-up';
+import ForgotPassword from './pages/forgot-pw';
+import ResetPassword from './pages/reset-password';
 
 function App() {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
   const searchBarRef = useRef(null);
+  const location = useLocation(); // Get the current route
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,26 +45,44 @@ function App() {
 
   return (
     <div className="landing-page">
-      <Header />
+      {/* Render Header only if we're on the home route */}
+      {location.pathname === "/" && <Header />} {/* Conditionally render Header based on the current route */}
+
       {showStickyHeader && <StickyHeader />} {/* Conditionally render StickyHeader */}
-      <main className="hero">
-        <div className="hero-content">
-          <h2>Find trusted local trades in seconds</h2>
-          <p>Your directory for verified tradespeople in Ayrshire & Glasgow.</p>
-          <SearchBar ref={searchBarRef} />
-          <RecentSearches />
-        </div>
-        <CarouselSearch />
-        <HowItWorks />
-        <BenefitsTradespeople />
-        <Questions />
-        <Divider />
-        <LocalTrades />
-        <Divider />
-        <Footer />
-      </main>
+      
+      <Routes>
+        {/* Define the routes for your pages */}
+        <Route path="/" element={
+          <main className="hero">
+            <div className="hero-content">
+              <h2>Find trusted local trades in seconds</h2>
+              <p>Your directory for verified tradespeople in Ayrshire & Glasgow.</p>
+              <SearchBar ref={searchBarRef} />
+              <RecentSearches />
+            </div>
+            <CarouselSearch />
+            <HowItWorks />
+            <BenefitsTradespeople /> 
+            <Questions />
+            <Divider />
+            <LocalTrades />
+            <Divider />
+            <Footer />
+          </main>
+        } />
+        <Route path="/login" element={<Login />} /> 
+        <Route path="/sign-up" element={<SignUp />} /> 
+        <Route path="/forgot-password" element={<ForgotPassword />} /> 
+        <Route path="/reset-password" element={<ResetPassword />} /> 
+      </Routes>
     </div>
   );
 }
 
-export default App;
+export default function AppWrapper() {
+  return (
+    <Router>
+      <App /> {/* App is wrapped inside Router */}
+    </Router>
+  );
+}
