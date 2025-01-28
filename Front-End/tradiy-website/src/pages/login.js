@@ -124,7 +124,7 @@ function Login() {
           {/* Signup and Social Login */}
           <p className="signup-text">
             Don’t have an account?{" "}
-            <a href="/signup" className="signup-link">
+            <a href="/sign-up" className="signup-link">
               Sign up here
             </a>
           </p>
