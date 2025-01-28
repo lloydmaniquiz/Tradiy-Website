@@ -1,63 +1,62 @@
+.signup-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #eef2f6; /* Softer background for better contrast */
+  }
+
 /* Update .sign-up-container to .signup-container */
 .signup-container {
     display: flex;
     flex-direction: row;
     width: 100%;
+    max-width: 1440px;
     height: auto;
     min-height: 100vh;
     background: white;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
     overflow: hidden;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Style for the inner container */
-.signup-inner-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #eef2f6;
-    max-width: 1440px;
-}
+  }
 
 /* Wrapper */
 .signup-wrapper {
     display: flex;
-    width: 900px;
+    width: 1440px;
     max-width: 100%;
     background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
-/* Image Section */
 .signup-image-section {
-    flex: 1;
+    background-color: #f0f4f8;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background: #eef2f7;
-    padding: 20px;
+    align-items: center;
+    position: relative;
+  }
+
+.signup-form-section img{
+    padding-top: -1.5rem;
+    width: 140px; 
+    display: block;
+    margin: 0 auto; /* Centers the image horizontally */
+  }
+
+/* Image Section */
+.signup-form-section {
+    flex: 1;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .signup-image {
-    width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    border-radius: 10px 0 0 10px;
-}
-
-/* Form Section */
-.signup-form-section {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  width: 674px;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the div */
 }
 
 /* Title */
@@ -70,8 +69,24 @@
 /* Subtitle */
 .signup-subtitle {
     font-size: 14px;
-    color: #7f8c8d;
+    font-weight: 600;
+    margin-top: 1rem;
+    max-width: 400px;
+    color: #2EC1C7;
     margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Role selection header */
+.signup-role-header {
+    display: block; /* Makes it a block-level element */
+    font-family: "Hanken Grotesk", Arial;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000839; /* Label color */
+    margin-bottom: 8px; /* Space between header and buttons */
+    text-align: left; /* Align text to the left */
+    width: 100%; /* Ensure it takes the full width of its container */
 }
 
 /* Role selection buttons */
@@ -79,34 +94,56 @@
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
+    width: 100%;
+    gap: 1rem;
 }
 
 .signup-role-selection button {
     background: none;
-    border: 2px solid #3498db;
-    color: #3498db;
-    padding: 10px 15px;
+    font-family: "Hanken Grotesk", Arial;
+    border: 1px solid #BBBCC0;
+    color: #000839;
+    padding: 15px 15px;
     margin: 0 5px;
     cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
+    border-radius: 50px;
     transition: all 0.3s ease;
+    width: 100%;
 }
 
 /* Active role button */
 .signup-role-selection button.signup-active {
-    background: #3498db;
+    background: #000839;
+    border: 1px solid #000839;
     color: white;
 }
 
 /* Input fields */
+.signup-input-group {
+    width: 100%;
+    margin-bottom: 5px; /* Add space between input groups */
+    text-align: left; /* Align the label and input to the left */
+}
+
+.signup-input-group label {
+    display: block; /* Makes the label a block-level element */
+    font-size: 14px;
+    font-weight: 600;
+    color: #000839; /* Label color */
+    margin-bottom: 8px; /* Space between label and input */
+    font-family: "Hanken Grotesk", Arial;
+}
+
 .signup-input-field {
     width: 100%;
-    padding: 12px;
-    border: 2px solid #bdc3c7;
-    border-radius: 5px;
+    padding: 15px;
+    border: 1px solid #bdc3c7;
+    border-radius: 50px;
     margin-bottom: 15px;
     font-size: 14px;
+    font-family: "Hanken Grotesk", Arial;
+    font-weight: 500;
+    color: #000839;
 }
 
 /* Input group for password fields */
@@ -117,7 +154,7 @@
 
 .signup-icon-button {
     position: absolute;
-    right: 10px;
+    right: 15px;
     top: 50%;
     transform: translateY(-50%);
     background: none;
@@ -133,66 +170,75 @@
 
 /* Signup Button */
 .signup-button {
+    font-family: "Hanken Grotesk", Arial;
+    margin-top: 1rem;
     width: 100%;
-    padding: 12px;
-    background: #3498db;
+    padding: 15px;
+    background: #000839;
     border: none;
     color: white;
     font-size: 16px;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     transition: background 0.3s;
 }
 
 .signup-button:hover {
-    background: #2980b9;
+    background: #2EC1C7;
 }
 
 /* Login text */
 .signup-login-text {
     font-size: 14px;
     margin-top: 15px;
+    color: #000839;
+    font-weight: 600;
+    font-family: "Hanken Grotesk", Arial;
 }
 
 .signup-login-link {
-    color: #3498db;
+    color: #2EC1C7;
     text-decoration: none;
     font-weight: bold;
+    font-family: "Hanken Grotesk", Arial;
 }
 
 .signup-login-link:hover {
     text-decoration: underline;
 }
 
-.sign-up-password-checker {
-    font-size: 6rem !important;
-    color: gray !important;
-    width: 454px !important;
-    margin: 0 auto !important;
-    margin-bottom: 1.7rem !important;
+.signup-password-checker {
+    font-size: 0.8rem;
+    color: gray;
+    width: 100%; /* Ensure it takes the full width */
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    margin-top: -1.3rem;
+    text-align: left; /* Align items to the left */
+}
+
+.signup-password-checker ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.signup-password-checker li {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
 }
   
-.sign-up-password-checker ul {
-    margin: 0 !important;
-    padding-left: 0 !important;
+.signup-password-checker li.valid {
+    color: green;
 }
   
-.sign-up-password-checker li {
-    display: flex !important;
-    align-items: center !important;
-    margin: 5px 0 !important;
+.signup-password-checker li.invalid {
+    color: gray;
 }
   
-.sign-up-password-checker li.valid {
-    color: green !important;
-}
-  
-.sign-up-password-checker li.invalid {
-    color: gray !important;
-}
-  
-.sign-up-password-checker li svg {
-    margin-right: 10px !important;
-    color: inherit !important; /* Ensures color changes based on validity */
+.signup-password-checker li svg {
+    margin-right: 10px;
+    color: inherit; /* Ensures color changes based on validity */
 }

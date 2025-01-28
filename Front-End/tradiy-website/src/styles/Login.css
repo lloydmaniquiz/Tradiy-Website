@@ -69,7 +69,7 @@
   color: #000839;
   flex: 1;
   padding: 12px;
-  border: 2px solid #BBBCC0;
+  border: 1px solid #BBBCC0;
   border-radius: 50px;
   background-color: #FDFEFF;
   cursor: pointer;
@@ -86,7 +86,7 @@
 .role-button:hover {
   background-color: #000839;
   color: white;
-  border: 2px solid #000839;
+  border: 1px solid #000839;
 }
 
 .form-group {
