@@ -16,6 +16,7 @@ import Login from './pages/login'; // Import Login component
 import SignUp from './pages/sign-up';
 import ForgotPassword from './pages/forgot-pw';
 import ResetPassword from './pages/reset-password';
+import EmailVerification from './pages/email-verification';
 
 function App() {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
@@ -74,6 +75,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} /> 
         <Route path="/forgot-password" element={<ForgotPassword />} /> 
         <Route path="/reset-password" element={<ResetPassword />} /> 
+        <Route path="/email-verification" element={<EmailVerification />} />
       </Routes>
     </div>
   );

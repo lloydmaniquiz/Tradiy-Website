@@ -242,3 +242,65 @@
     margin-right: 10px;
     color: inherit; /* Ensures color changes based on validity */
 }
+
+/* EMAIL VERIFICATION */
+
+.email-verification-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+    font-family: "Hanken Grotesk", Arial;
+  }
+  
+  .email-verification-header {
+    width: 100%;
+    background-color: #FFBC58;
+    color: #000839;
+    text-align: center;
+    font-weight: bold;
+    padding: 20px 0;
+    font-size: 16px;
+  }
+  
+  .email-verification-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 6rem;
+  }
+  
+  .email-verification-logo {
+    width: 200px;
+    margin-bottom: 20px; /* Reduce space for better stacking */
+  }
+  
+  .email-verification-image {
+    width: 250px;
+    margin-bottom: 10px;
+  }
+  
+  .email-verification-container h2 {
+    color: #000839;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  p:first-of-type {
+    margin-bottom: 20px; /* Add space below the first <p> */
+  }
+  
+  .email-verification-container p {
+    color: #2EC1C7;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  strong {
+    color: #2EC1C7;
+  }
+  
