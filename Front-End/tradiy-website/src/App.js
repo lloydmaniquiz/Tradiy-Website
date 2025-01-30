@@ -17,6 +17,8 @@ import SignUp from './pages/sign-up';
 import ForgotPassword from './pages/forgot-pw';
 import ResetPassword from './pages/reset-password';
 import EmailVerification from './pages/email-verification';
+import EmailVerified from './pages/verified';
+import RegistrationForm from './pages/tradiy-trader-registration';
 
 function App() {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
@@ -76,6 +78,8 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} /> 
         <Route path="/reset-password" element={<ResetPassword />} /> 
         <Route path="/email-verification" element={<EmailVerification />} />
+        <Route path="/email-verified" element={<EmailVerified />} />
+        <Route path="/tradiy-registration-form" element={<RegistrationForm />} />
       </Routes>
     </div>
   );

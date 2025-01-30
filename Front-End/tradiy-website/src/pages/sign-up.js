@@ -48,8 +48,15 @@ export default function SignUp() {
 
   const handleSignUp = (e) => {
     e.preventDefault();
+  
     if (Object.values(passwordValid).every(Boolean) && passwordMatch && email.trim() !== "") {
-      navigate("/email-verification"); 
+      // Check if the selected role is Homeowner
+      if (role === "Homeowner") {
+        // Redirect to email-verification page if the role is Homeowner
+        navigate("/email-verification");
+      } else {
+        navigate("/tradiy-registration-form");
+      }
     }
   };
 

@@ -289,10 +289,6 @@
     font-weight: bold;
     margin-bottom: 10px;
   }
-
-  p:first-of-type {
-    margin-bottom: 20px; /* Add space below the first <p> */
-  }
   
   .email-verification-container p {
     color: #2EC1C7;
@@ -303,4 +299,68 @@
   strong {
     color: #2EC1C7;
   }
+
+/* EMAIL VERIFIED */
+
+.email-verified-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+    font-family: "Hanken Grotesk", Arial;
+  }
+
+  .email-verified-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 6rem;
+  }
   
+  .email-verified-logo {
+    width: 200px;
+    margin-bottom: 20px; /* Reduce space for better stacking */
+  }
+  
+  .email-verified-image {
+    width: 250px;
+    margin-bottom: 10px;
+  }
+  
+  .email-verified-container h2 {
+    color: #2EC1C7;
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .email-verified-container p {
+    color: #000839;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  strong {
+    color: #2EC1C7;
+  }
+  
+  .continue-button {
+    background-color: #000839;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50px;
+    margin-top: 40px;
+    font-family: "Hanken Grotesk", Arial;
+    transition: all 0.3s ease;
+    width: 150px;
+  }
+  
+  .continue-button:hover {
+    background-color: #2EC1C7;
+  }
