@@ -1,6 +1,6 @@
 import "../App.css";
 import free from "../images/benefits-set/free.png";
-import trust from "../images/benefits-set/free.png";
+import trust from "../images/benefits-set/trust.png";
 import expert from "../images/benefits-set/expert.png"
 import connect from "../images/benefits-set/connect.png";
 import comingSoon from "../images/coming-soon.png";
@@ -52,7 +52,7 @@ const BenefitsTradespeople = () => {
           </p>
         </div>
       </div>
-      <button className="diy-button">Be a Tradiy Trader!</button>
+      <button className="diy-button" onClick={() => window.open("/sign-up", "_blank")}>Be a Tradiy Trader </button>
       <div className="coming-soon">
         <div className="overlay-container">
           <img src={comingSoon} alt="Coming Soon" />

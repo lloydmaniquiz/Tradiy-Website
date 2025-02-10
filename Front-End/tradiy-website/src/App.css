@@ -16,7 +16,11 @@
   background-color: #000839;
   position: relative; /* Keeps it in the document flow */
   width: 100%; /* Ensure it spans the full width */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for separation */
+  
+}
+
+.htw-overlay h1{
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow for separation */
 }
 
 .logo-burger {
@@ -105,6 +109,11 @@
 }
 
 .submenu li a {
+  text-decoration: none;
+  color: #000839; /* Set color here for submenu links */
+}
+
+.submenu li button {
   text-decoration: none;
   color: #000839; /* Set color here for submenu links */
 }
@@ -447,16 +456,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 1rem;
   margin: 3rem 0;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .carousel-button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+.carousel-wrapper {
+  width: 80%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Smooth sliding */
+  width: calc(12 * 120px); /* Total width for all items */
 }
 
 .carousel-container {
@@ -467,15 +489,18 @@
   position: relative;
 }
 
+
 .carousel-item-button {
+  flex: 0 0 auto;
+  width: 120px; /* Adjust based on spacing */
+  transition: transform 0.3s ease, opacity 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  text-align: center;
-  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
 }
 
 .carousel-item-button img {
@@ -497,6 +522,7 @@
   transform: scale(1.2); /* Slightly bigger scale on click */
   animation: bounce 0.3s ease-out; /* Add a bounce animation */
 }
+
 
 /* Bounce animation */
 @keyframes bounce {
@@ -1019,6 +1045,20 @@
   text-align: start;
 }
 
+.faqs-link-directory {
+  text-align: right; /* Aligns text to the right */
+  text-decoration: underline;
+  font-size: 20px;
+  display: flex;
+  justify-content: flex-end; /* Aligns the content to the right */
+  cursor: pointer;
+  width: 85%; /* Ensures it takes up the full width of the parent container */
+}
+
+.faqs-link-directory a{
+  color: #000839;
+}
+
 /* FAQ Header */
 .faq-header {
   background-color: #fff;
@@ -1267,6 +1307,7 @@
 .sticky-header .tradiy-logo {
   padding: 1rem;
   width: 150px;
+  cursor: pointer;
 }
 
 .sticky-header p{
@@ -1283,3 +1324,415 @@
   padding-right: 3rem;
   gap: 1rem;
 }
+
+/* HOW TRADIY WORKS */
+
+.htw-how-tradiy-works {
+  margin-top: 4rem;
+  text-align: center;
+  font-family: "Hanken Grotesk", Arial;
+}
+
+.htw-hero {
+  background: url("./images/htw-header.png") center/cover no-repeat;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
+  font-size: x-large;
+}
+
+.htw-content {
+  padding: 50px 20px;
+}
+
+.htw-content h2{
+  font-size: x-large;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.htw-subheading {
+  color: #2EC1C7;
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.htw-steps-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.htw-step {
+  width: 300px;
+  text-align: center;
+}
+
+.htw-step h3 {
+  font-size: 30px;
+  color: #000839;
+}
+
+.htw-step p {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #000839;
+  font-style: italic;
+}
+
+.htw-cta {
+  margin-top: 80px;
+}
+
+.htw-search-button {
+  background-color: #000839;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px; 
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Hanken Grotesk", Arial;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Smooth hover effect */
+}
+
+.htw-search-button:hover {
+  background-color: #1dbfcc;
+}
+
+.htw-arrow {
+  width: 60px; /* Adjust the size as needed */
+  height: 10%;
+  margin: 0 20px; /* Adjust the spacing between steps */
+}
+
+.htw-personal-dashboard {
+  width: 1024px;
+  margin: 60px auto; /* Centering the dashboard */
+  display: flex;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  gap: 3rem;
+}
+
+.htw-dashboard-header {
+  text-align: left;
+  margin-left: 20px; /* Example for some left margin */
+  color: #000839;
+  font-size: x-large;
+}
+
+.htw-dashboard-header p{
+  margin-top: 20px;
+  font-size: large;
+}
+
+.htw-check-text-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 30px;
+  margin-left: 20px; /* Example for some left margin */
+}
+
+.htw-check-text-wrapper p {
+  font-size: large;
+}
+
+.htw-check {
+  width: 32px;
+}
+
+.htw-check-text-container {
+  color: #000839;
+  text-align: left;
+  max-width: 640px;
+}
+
+.htw-side-image {
+  width: 400px;
+  height: 400px;
+}
+
+.htw-divider {
+  width: 100%;
+  height: 80px;
+  background: url("./images/htw-divider.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000839;
+  position: relative;
+  font-size: x-large;
+  margin-bottom: 8rem;
+}
+
+.htw-overlay h2 {
+  font-size: 20px;
+}
+
+.htw-homeowner-header {
+  display: flex;
+  flex-direction: column; /* Stack the h1 and p vertically */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+}
+
+.htw-homeowner-header h1 {
+  color: #000839;
+  padding: 20px;
+  background-color: #FFBC58;
+  width: 380px;
+  border-radius: 10px;
+  text-align: center; /* Center the text within h1 */
+  margin-bottom: 20px; /* Adds some space below the h1 */
+}
+
+.htw-homeowner-header p {
+  color: #000839;
+  font-size: 18px;
+  text-align: center;
+  max-width: 1000px;
+  margin-bottom: 30px;
+}
+
+.htw-link-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 50px;
+}
+
+
+.htw-choose-tradiy {
+  width: 100%;
+  height: 170px;
+  background: url("./images/htw-choose-tradiy.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000839;
+  position: relative;
+  font-size: x-large;
+  margin-bottom: 2rem;
+  margin-top: 100px;
+}
+
+.htw-choose-tradiy-overlay {
+  color: white;
+}
+
+.htw-choose-tradiy-container p{
+  color: #000839;
+  font-weight: 600;
+  font-size: large;
+  margin-bottom: 20px;
+}
+
+.htw-benefits-set {
+  background-color: #F2F4FA;
+  padding: 1.5rem;
+  border-radius: 20px;
+  max-width: 250px;
+  text-align: center; /* Center text inside each card */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+}
+
+.htw-benefits-set img{
+  width: 110px;
+  padding-bottom: 10px;
+}
+
+.htw-benefits-set h3 {
+  justify-content: center;
+  font-size: x-large;
+  margin: 0.5rem 0;
+  color: #000839;
+}
+
+.htw-benefits-set p {
+  font-size: medium;
+  color: #000839;
+  align-items: center;
+  font-weight: 500;
+}
+
+.htw-coming-soon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  margin-bottom: 5rem;
+}
+
+.htw-overlay-container {
+  position: relative;
+  width: 100%;
+  max-width: 1100px; /* Adjust width as needed */
+  border-radius: 12px; /* Rounded corners */
+  overflow: hidden; /* Ensures rounded corners work with child elements */
+  margin-bottom: 5rem;
+}
+
+.htw-overlay-container img {
+  width: 100%;
+  height: auto;
+}
+
+.htw-overlay-coming-soon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  text-align: center; /* Ensure text is centered */
+  padding: 1rem; /* Add some padding */
+}
+
+.htw-overlay-text {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center align items */
+  justify-content: center; /* Center content */
+  text-align: center; /* Ensure text is centered */
+  color: white;
+  max-width: 800px; /* Set a max-width for better readability */
+}
+
+.htw-overlay-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #FFF;
+}
+
+.htw-overlay-text p {
+  font-size: 1.35rem;
+  max-width: 1000px;
+  margin-bottom: 20px;
+}
+
+.htw-overlay-text button {
+  background-color: #2EC1C7;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease; /* Smooth hover effect */
+}
+
+/* FAQS */
+
+.faqs-hero {
+  background: url("./images/faqs-header.png") center/cover no-repeat;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  position: relative;
+  font-size: x-large;
+  margin-top: 60px;
+  font-family: "Hanken Grotesk", Arial;
+  text-align: center;
+}
+
+.faqs-overlay {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional shadow for separation */
+  font-family: "Hanken Grotesk", Arial;
+  font-size: 36px
+}
+
+.faqs-overlay p{
+  font-size: large;
+  margin-top: 8px;
+}
+
+.faqs-search-container {
+  width: 40%;
+  display: flex; /* Make the container a flex container */
+  justify-content: center; /* Centers content horizontally */
+  margin: 0 auto; /* Ensures the container itself is centered within the parent */
+  margin-top: 60px;
+}
+
+.faqs-search-input {
+  font-family: "Hanken Grotesk", Arial;
+  color: #000839;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.faq-list {
+  justify-content: center;
+}
+
+.faq-category {
+  color: #000839;
+  padding: 10px;
+  background-color: #00F2EA;
+  width: 250px;
+  font-family: "Hanken Grotesk", Arial;
+  border-radius: 10px;
+  text-align: center; /* Center the text within h1 */
+  margin-bottom: 30px; /* Adds some space below the h1 */
+  text-align: center;
+  margin-top: 60px;
+  font-size: 18px;
+  margin-left: 50px;
+}
+
+.faq-category-container {
+  max-width: 1042px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.faq-container {
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+  font-family: "Hanken Grotesk", Arial;
+  color: #000839;
+}
+
+.faq-content {
+  font-family: "Hanken Grotesk", Arial;
+  line-height: 1.5;
+}
+
+.no-faqs-found {
+  text-align: center; /* Centers the text */
+  font-size: 1.2rem; /* Increases the font size */
+  color: #000839; /* Set the color of the text */
+  margin-top: 20px; /* Adds some space above */
+  font-weight: bold; /* Make the text bold */
+  font-family: "Hanken Grotesk", Arial;
+}
+
+.faqs-search-container {
+  position: relative;
+}
+
+.faqs-search-input {
+  padding-left: 45px;  /* Add some padding to the left so the icon doesn't overlap the text */
+  padding-right: 20px;  /* Optional: space on the right side of the input */
+}
+
+.search-icon {
+  position: absolute;
+  left: 20px;  /* Position the icon inside the input field */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;  /* Adjust the size of your icon */
+  height: 16px;  /* Adjust the size of your icon */
+}
+

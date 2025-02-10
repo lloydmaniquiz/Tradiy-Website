@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import "../App.css";
 
-const Questions = () => {
+const HTWQuestions = () => {
   const questionsData = [
-    { question: "What is Tradiy?", answer: "Tradiy is an online directory connecting homeowners in Scotland with verified tradespeople. It’s designed to make finding trusted professionals for home projects quick, simple, and stress-free." },
-    { question: "How does Tradiy ensure tradespeople are reliable?", answer: "All tradespeople listed on Tradiy are personally vetted by our team. They must provide valid ID, public liability insurance, and relevant certifications to be verified." },
-    { question: "Is Tradiy free to use?", answer: "Yes, Tradiy is free for homeowners to browse and contact tradespeople. Tradespeople can currently sign up and get verified for free as well." },
-    { question: "How do I search for tradespeople on Tradiy?", answer: "You can search the directory by trade and location. For example, enter “electrician in Glasgow” or “plumber in Ayrshire” to find professionals near you." },
-    { question: "Can homeowners leave reviews?", answer: "Currently, our team personally vets all tradespeople. In the future, homeowners will be able to leave reviews to further help others make informed decisions." }
+    { question: "What is Tradiy?", answer: "Tradiy is a platform that helps you find local, verified tradespeople for your home improvement and repair needs. From plumbers to electricians, all listed professionals are vetted to ensure quality and reliability." },
+    { question: "How do I search for tradespeople?", answer: "Visit Tradiy’s website (or soon, the mobile app) and search by location and trade. For example, you can look for “electricians in Ayrshire” or “plumbers in Glasgow.”" },
+    { question: "Are all tradespeople verified?", answer: "Yes, tradespeople listed on Tradiy must provide valid ID, public liability insurance, and any necessary certifications to ensure they are trustworthy and competent." },
+    { question: "Is Tradiy free to use?", answer: "Yes, Tradiy is completely free for homeowners to use." },
+    { question: "How do I contact a tradesperson?", answer: "Once you find a tradesperson you’d like to work with, you can contact them directly through the details provided in their Tradiy profile." }
   ];
 
   const [openIndexes, setOpenIndexes] = useState([]);
@@ -53,4 +53,4 @@ const Questions = () => {
   );
 };
 
-export default Questions;
+export default HTWQuestions;

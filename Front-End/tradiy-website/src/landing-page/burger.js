@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../App.css"; // Import the CSS for styling
 
 const BurgerDropdown = () => {
@@ -6,6 +7,12 @@ const BurgerDropdown = () => {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const navigate = useNavigate();
+
+  const handleNavigation = () => {
+    navigate("/how-tradiy-works");
   };
 
   return (
@@ -24,21 +31,31 @@ const BurgerDropdown = () => {
             <li className="has-submenu">
               HOMEOWNERS
               <ul className="submenu">
-                <li><a href="#are-you-homeowner">Are you a homeowner?</a></li>
-                <li><a href="#find-trade">Find a Trade</a></li>
+              <li>
+                <a 
+                  href="/how-tradiy-works" 
+                  onClick={(e) => { 
+                    e.preventDefault(); 
+                    handleNavigation();
+                  }}
+                >
+                  Are you a homeowner?
+                </a>
+              </li>
+                <li><a href="/directory">Find a Trade</a></li>
               </ul>
             </li>
             <li className="has-submenu">
               TRADESPEOPLE
               <ul className="submenu">
-                <li><a href="#are-you-tradespeople">Are you a tradesperson?</a></li>
-                <li><a href="#tradiy-benefits">Tradiy Benefits</a></li>
-                <li><a href="#be-a-tradiy">Be a Tradiy Trader</a></li>
+                <li><a href="/are-you-a-tradesperson">Are you a tradesperson?</a></li>
+                <li><a href="/tradiy-benefits">Tradiy Benefits</a></li>
+                <li><a href="/sign-up">Be a Tradiy Trader</a></li>
               </ul>
             </li>
             <div className="divider"></div>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#newsletter">Join our Newsletter</a></li>
+            <li><a href="/blogs">Blog</a></li>
+            <li><a href="/newsletter">Join our Newsletter</a></li>
           </ul>
         </div>
       )}

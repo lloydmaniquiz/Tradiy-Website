@@ -5,7 +5,6 @@ import Drilling from "../images/drilling.jpg";
 import { FaTimes } from 'react-icons/fa';  // Import the FaTimes icon
 import UploadModal from "../components/UploadModal";
 import workerSignup from "../images/worker-signup.png";
-import tradiyLogoPeacock from "../images/tradiy-peacock-seal.png";
 import Select from 'react-select';
 
 // Main Registration Form component
@@ -88,7 +87,7 @@ const Step1 = ({ formData, onSave, onNext, saveForLater, currentStep, totalSteps
   ];
 
   const handleChange = (selectedOptions) => {
-    // Save the selected options as an array of values
+    // Ensure selectedOptions is always an array
     const selectedValues = selectedOptions ? selectedOptions.map(option => option.value) : [];
     onSave('traderCategory', selectedValues);
   };
@@ -118,7 +117,7 @@ const Step1 = ({ formData, onSave, onNext, saveForLater, currentStep, totalSteps
                 value={formData.businessName || ''}
                 onChange={(e) => onSave('businessName', e.target.value)}
                 className="regForm-input"
-                style={{fontFamily : '"Hanken Grotesk", "Arial"', color: "#000839"}}
+                style={{ fontFamily: '"Hanken Grotesk", "Arial"', color: "#000839" }}
               />
             </div>
 
@@ -131,7 +130,7 @@ const Step1 = ({ formData, onSave, onNext, saveForLater, currentStep, totalSteps
                 value={formData.businessOwner || ''}
                 onChange={(e) => onSave('businessOwner', e.target.value)}
                 className="regForm-input"
-                style={{fontFamily : '"Hanken Grotesk", "Arial"', color: "#000839"}}
+                style={{ fontFamily: '"Hanken Grotesk", "Arial"', color: "#000839" }}
               />
             </div>
 
@@ -144,7 +143,7 @@ const Step1 = ({ formData, onSave, onNext, saveForLater, currentStep, totalSteps
                 value={formData.businessAddress || ''}
                 onChange={(e) => onSave('businessAddress', e.target.value)}
                 className="regForm-input"
-                style={{fontFamily : '"Hanken Grotesk", "Arial"', color: "#000839"}}
+                style={{ fontFamily: '"Hanken Grotesk", "Arial"', color: "#000839" }}
               />
             </div>
 
@@ -157,7 +156,7 @@ const Step1 = ({ formData, onSave, onNext, saveForLater, currentStep, totalSteps
                 value={formData.businessNumber || ''}
                 onChange={(e) => onSave('businessNumber', e.target.value)}
                 className="regForm-input"
-                style={{fontFamily : '"Hanken Grotesk", "Arial"', color: "#000839"}}
+                style={{ fontFamily: '"Hanken Grotesk", "Arial"', color: "#000839" }}
               />
             </div>
 
@@ -166,7 +165,7 @@ const Step1 = ({ formData, onSave, onNext, saveForLater, currentStep, totalSteps
               <div className="regForm-select-wrapper">
                 <Select
                   id="traderCategory"
-                  value={options.filter(option => formData.traderCategory.includes(option.value))}
+                  value={options.filter(option => (formData.traderCategory || []).includes(option.value))}
                   onChange={handleChange}
                   options={options}
                   isMulti  // Enable multiple selection
@@ -176,25 +175,25 @@ const Step1 = ({ formData, onSave, onNext, saveForLater, currentStep, totalSteps
                       ...base,
                       fontFamily: '"Hanken Grotesk", "Arial"',
                       color: '#000839',
-                      border: 'none', // Remove the border
-                      boxShadow: 'none', // Remove the shadow effect
-                      borderColor: state.isFocused ? 'transparent' : 'none', // Remove blue border on focus
+                      border: 'none',
+                      boxShadow: 'none',
+                      borderColor: state.isFocused ? 'transparent' : 'none',
                     }),
                     multiValue: (base) => ({
                       ...base,
-                      borderRadius: '5px', // Add border radius to selected items
-                      backgroundColor: '#ECEDF2', // Optional: Change background color of selected items
-                      padding: '5px 10px', // Optional: Add padding inside selected items
+                      borderRadius: '5px',
+                      backgroundColor: '#ECEDF2',
+                      padding: '5px 10px',
                     }),
                     multiValueLabel: (base) => ({
                       ...base,
-                      color: '#000839', // Set label text color if needed
+                      color: '#000839',
                     }),
                     multiValueRemove: (base) => ({
                       ...base,
-                      color: '#000839', // Set remove icon color if needed
+                      color: '#000839',
                       ':hover': {
-                        backgroundColor: '#f0f0f0', // Optional: Hover color for the remove icon
+                        backgroundColor: '#f0f0f0',
                       },
                     }),
                   }}
@@ -219,6 +218,7 @@ const Step1 = ({ formData, onSave, onNext, saveForLater, currentStep, totalSteps
     </div>
   );
 };
+
 
 // Step 2 Business Information
 const Step2 = ({ onNext, onBack, formData, onSave, saveForLater, currentStep, totalSteps }) => {
