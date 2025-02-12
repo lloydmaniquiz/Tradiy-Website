@@ -26,17 +26,17 @@
   justify-content: center;
 }
 
-.login-form-section img{
+.login-form-section img {
   padding-top: -1.5rem;
-  width: 12rem; 
+  width: 12rem;
   display: block;
   margin: 0 auto; /* Centers the image horizontally */
 }
 
-.login-form-section h2{
+.login-form-section h2 {
   padding-top: 1rem;
   font-family: "Hanken Grotesk", Arial;
-  color: #2EC1C7;
+  color: #2ec1c7;
   font-weight: 600;
   font-size: large;
   max-width: 450px;
@@ -53,10 +53,10 @@
 }
 
 .role-selection-container {
-  margin-bottom: 2rem
+  margin-bottom: 2rem;
 }
 
-.login-title{
+.login-title {
   font-family: "Hanken Grotesk", Arial;
   color: #000839;
   font-size: small;
@@ -69,9 +69,9 @@
   color: #000839;
   flex: 1;
   padding: 12px;
-  border: 1px solid #BBBCC0;
+  border: 1px solid #bbbcc0;
   border-radius: 50px;
-  background-color: #FDFEFF;
+  background-color: #fdfeff;
   cursor: pointer;
   text-align: center;
   transition: all 0.3s ease; /* Smooth hover transition */
@@ -98,7 +98,7 @@
   margin-top: -0.5rem;
 }
 
-.form-group input{
+.form-group input {
   margin-top: 0.2rem;
 }
 
@@ -165,7 +165,7 @@ input:focus {
 }
 
 .login-button:hover {
-  background-color: #2EC1C7;
+  background-color: #2ec1c7;
 }
 
 .forgot-password {
@@ -196,21 +196,21 @@ input:focus {
   color: #000839;
   padding-top: 1rem;
   font-family: "Hanken Grotesk", Arial;
-  font-size: small; 
+  font-size: small;
   font-weight: 500;
   text-align: center;
   padding-bottom: 1rem;
 }
 
 .signup-link {
-  color: #2EC1C7;
+  color: #2ec1c7;
 }
 
-.or-text{
+.or-text {
   color: #000839;
   margin-top: -1rem;
   font-family: "Hanken Grotesk", Arial;
-  font-size: small; 
+  font-size: small;
   font-weight: 500;
   text-align: center;
   padding-bottom: 1rem;
@@ -229,7 +229,7 @@ input:focus {
   align-items: center;
   width: 50px; /* Set a fixed size for the buttons */
   height: 50px;
-  border: 1px solid #BBBCC0; /* Light border for buttons */
+  border: 1px solid #bbbcc0; /* Light border for buttons */
   border-radius: 10px; /* Rounded corners */
   background-color: white; /* White background for the box */
   cursor: pointer;

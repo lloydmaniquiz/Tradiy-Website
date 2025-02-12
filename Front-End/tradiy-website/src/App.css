@@ -2173,3 +2173,190 @@
 .video-placeholder iframe {
   border-radius: 15px; /* Rounded corners for the iframe */
 }
+
+/* NEWSLETTER */
+
+/* Container */
+.newsletter-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.newsletter-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1440px;
+  height: auto;
+  min-height: 100vh;
+  background: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+  overflow: hidden;
+  margin-bottom: -80px;
+}
+
+/* Right Side (Image) */
+
+.newsletter-form-section {
+  flex: 1;
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.newsletter-form-section img {
+  padding-top: -1.5rem;
+  width: 12rem;
+  display: block;
+  width: 130px;
+}
+
+.newsletter-form-section h2 {
+  padding-top: 1rem;
+  font-family: "Hanken Grotesk", Arial;
+  color: #2ec1c7;
+  font-weight: 600;
+  font-size: 50px;
+  max-width: 550px;
+  text-align: left;
+  padding-bottom: 2rem;
+}
+
+.newsletter-title {
+  font-family: "Hanken Grotesk", Arial;
+  color: #000839;
+  font-size: large;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.newsletter-image-section {
+  flex: 1;
+  background-color: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.newsletter-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the div */
+  object-position: right; /* Focus on the right part of the image */
+}
+
+.newsletter-role-selection {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Added gap for better spacing */
+  margin-bottom: 20px;
+}
+
+.newsletter-role-selection-container {
+  margin-bottom: 2rem;
+}
+
+.newsletter-role-button {
+  font-family: "Hanken Grotesk", Arial;
+  color: #000839;
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #bbbcc0;
+  border-radius: 20px;
+  background-color: #fdfeff;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease; /* Smooth hover transition */
+}
+
+.newsletter-role-button h1 {
+  font-size: 18px;
+  padding-bottom: 5px;
+}
+
+.newsletter-role-button p {
+  font-size: 12px;
+  max-width: 180px;
+  margin: 0 auto;
+}
+
+.newsletter-role-button.active {
+  border-color: #000839;
+  background-color: #000839;
+  color: white;
+}
+
+.newsletter-role-button:hover {
+  background-color: #000839;
+  color: white;
+  border: 1px solid #000839;
+}
+
+.newsletter-button {
+  width: 100%;
+  padding: 12px;
+  font-family: "Hanken Grotesk", Arial;
+  font-weight: 700;
+  font-size: 1rem;
+  background-color: #000839;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.newsletter-button:hover {
+  background-color: #2ec1c7;
+}
+
+.disclaimer-header {
+  font-family: "Hanken Grotesk", Arial;
+  color: #2ec1c7;
+  font-size: 24px;
+}
+
+.disclaimer-content {
+  color: #000839;
+  font-weight: 500;
+  font-family: "Hanken Grotesk", Arial;
+  font-size: 12px;
+}
+
+.newsletter-agreement {
+  display: flex;
+  align-items: center; /* Vertically align checkbox and label */
+  font-family: "Hanken Grotesk", Arial;
+  gap: 10px; /* Adds space between checkbox and label */
+}
+
+.newsletter-agreement input {
+  cursor: pointer;
+}
+
+.newsletter-agreement label {
+  font-family: "Hanken Grotesk", Arial;
+  color: #000839;
+  white-space: nowrap; /* Prevent the text from wrapping onto two lines */
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.newsletter-agreement {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.newsletter-input {
+  color: #000839;
+  font-family: "Hanken Grotesk", Arial;
+  font-weight: 600;
+}
