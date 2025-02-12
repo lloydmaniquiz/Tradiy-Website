@@ -6,7 +6,8 @@ import workerImage from "../images/workerImage.png";
 import TradiyLogo from "../images/tradiy-navy-seal.png";
 
 const NewsletterPage = () => {
-  const [selectedRole, setSelectedRole] = useState("Homeowner");
+  const [selectedRole, setSelectedRole] = useState(null); // or any initial value like 'Homeowner' or 'Trader'
+
   const [formData, setFormData] = useState({
     forename: "",
     surname: "",
