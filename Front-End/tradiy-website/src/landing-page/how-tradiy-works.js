@@ -31,7 +31,7 @@ const HowTradiyWorks = () => {
   };
 
   const searchATrade = () => {
-    navigate("/blogs");
+    navigate("/directory");
   };
 
   return (
