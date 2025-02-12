@@ -22,7 +22,7 @@
 .text-container {
   width: 100%; /* Full width of the container */
   height: 20%; /* 20% of the container's height */
-  background-color: #ECEDF2;
+  background-color: #ecedf2;
   color: #000839;
   display: flex;
   flex-direction: column; /* Stack the header and description vertically */

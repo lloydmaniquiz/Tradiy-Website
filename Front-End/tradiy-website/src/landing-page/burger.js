@@ -48,7 +48,6 @@ const BurgerDropdown = () => {
             <li className="has-submenu">
               TRADESPEOPLE
               <ul className="submenu">
-                <li><a href="/are-you-a-tradesperson">Are you a tradesperson?</a></li>
                 <li><a href="/tradiy-benefits">Tradiy Benefits</a></li>
                 <li><a href="/sign-up">Be a Tradiy Trader</a></li>
               </ul>
