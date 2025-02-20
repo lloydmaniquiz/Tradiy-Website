@@ -29,7 +29,6 @@ import FAQs from "./pages/faqs";
 import ContactUs from "./pages/contact-us";
 import TradiyBenefits from "./landing-page/tradiy-benefits";
 import NewsletterPage from "./pages/newsletter";
-import BlogsPage from "./pages/blogs";
 
 function App() {
   const [showStickyHeader, setShowStickyHeader] = useState(false);
@@ -105,7 +104,6 @@ function App() {
         <Route path="/faqs" element={<FAQs />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/newsletter" element={<NewsletterPage />} />
-        <Route path="/blogs" element={<BlogsPage />} />
       </Routes>
     </div>
   );
