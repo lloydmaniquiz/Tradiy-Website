@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import "../App.css";
 import builderIcon from "../images/carousel-search/builder.png";
 import carpetFittingIcon from "../images/carousel-search/carpet.png";
@@ -19,43 +19,49 @@ import fastAndEasy from "../images/three-images/fast-and-easy.png";
 import supportBusiness from "../images/three-images/support-business.png";
 
 const CarouselSearch = () => {
-  const [searches] = useState([
-    { label: "Builder", icon: builderIcon },
-    { label: "Carpet Fitting", icon: carpetFittingIcon },
-    { label: "Driveways/Patios", icon: drivewaysIcon },
-    { label: "Electrician", icon: electricianIcon },
-    { label: "Gardener", icon: gardenerIcon },
-    { label: "Joiner", icon: joinerIcon },
-    { label: "Painter/Decorator", icon: painterIcon },
-    { label: "Plasterer", icon: plastererIcon },
-    { label: "Plumber", icon: plumberIcon },
-    { label: "Roofer", icon: rooferIcon },
-    { label: "Tiler", icon: tilerIcon },
-    { label: "Welder", icon: welderIcon },
-  ]);
+  const searches = useMemo(
+    () => [
+      { label: "Builder", icon: builderIcon },
+      { label: "Carpet Fitting", icon: carpetFittingIcon },
+      { label: "Driveways/Patios", icon: drivewaysIcon },
+      { label: "Electrician", icon: electricianIcon },
+      { label: "Gardener", icon: gardenerIcon },
+      { label: "Joiner", icon: joinerIcon },
+      { label: "Painter/Decorator", icon: painterIcon },
+      { label: "Plasterer", icon: plastererIcon },
+      { label: "Plumber", icon: plumberIcon },
+      { label: "Roofer", icon: rooferIcon },
+      { label: "Tiler", icon: tilerIcon },
+      { label: "Welder", icon: welderIcon },
+    ],
+    []
+  );
+
+  const totalItems = searches.length;
+  const itemWidth = 120; // Adjust if needed
+
+  const extendedSearches = useMemo(
+    () => [...searches, ...searches, ...searches],
+    [searches]
+  );
 
   const [index, setIndex] = useState(0);
-  const itemWidth = 120; // Adjust if needed
-  const totalItems = searches.length;
 
-  // Looping effect: Duplicate first & last items for smooth transition
-  const extendedSearches = [...searches, ...searches, ...searches];
+  const handleNext = useCallback(() => {
+    setIndex((prev) => (prev + 1) % totalItems);
+  }, [totalItems]);
+
+  const handlePrevious = useCallback(() => {
+    setIndex((prev) => (prev - 1 + totalItems) % totalItems);
+  }, [totalItems]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
-    }, 3000); // Auto-scroll every 3s
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
-
-  const handleNext = () => {
-    setIndex((prev) => (prev + 1) % totalItems);
-  };
-
-  const handlePrevious = () => {
-    setIndex((prev) => (prev - 1 + totalItems) % totalItems);
-  };
+  }, [handleNext]);
 
   return (
     <div className="carousel-combine">
@@ -66,7 +72,10 @@ const CarouselSearch = () => {
         <div className="carousel-wrapper">
           <div
             className="carousel-track"
-            style={{ transform: `translateX(-${index * itemWidth}px)` }}
+            style={{
+              transform: `translateX(-${index * itemWidth}px)`,
+              transition: "transform 0.5s ease-in-out",
+            }}
           >
             {extendedSearches.map((search, idx) => (
               <button
@@ -74,7 +83,11 @@ const CarouselSearch = () => {
                 key={idx}
                 onClick={() => alert(`You clicked on ${search.label}`)}
               >
-                <img src={search.icon} alt={search.label} className="carousel-item-image" />
+                <img
+                  src={search.icon}
+                  alt={search.label}
+                  className="carousel-item-image"
+                />
                 <span className="carousel-item-label">{search.label}</span>
               </button>
             ))}
@@ -87,21 +100,32 @@ const CarouselSearch = () => {
 
       {/* Additional Section */}
       <div className="triple-image">
-        <div className="image-item">
-          <img src={vettedPeople} alt="Verified and Vetted Tradespeople" />
-          <span className="image-text">Verified and Vetted Tradespeople</span>
-          <p>We verify every tradesperson for their qualifications, public liability insurance, and ID, so you can hire with confidence.</p>
-        </div>
-        <div className="image-item">
-          <img src={fastAndEasy} alt="Fast and Easy Search" />
-          <span className="image-text">Fast and Easy Search</span>
-          <p>With Tradiy, you can find the right tradesperson quickly, and it’s 100% free to browse.</p>
-        </div>
-        <div className="image-item">
-          <img src={supportBusiness} alt="Support Local Business" />
-          <span className="image-text">Support Local Business</span>
-          <p>When you hire through Tradiy, you’re helping local tradespeople in your area thrive. It’s a win-win for your project and the community.</p>
-        </div>
+        {[
+          {
+            img: vettedPeople,
+            alt: "Verified and Vetted Tradespeople",
+            text: "Verified and Vetted Tradespeople",
+            desc: "We verify every tradesperson for their qualifications, public liability insurance, and ID, so you can hire with confidence.",
+          },
+          {
+            img: fastAndEasy,
+            alt: "Fast and Easy Search",
+            text: "Fast and Easy Search",
+            desc: "With Tradiy, you can find the right tradesperson quickly, and it’s 100% free to browse.",
+          },
+          {
+            img: supportBusiness,
+            alt: "Support Local Business",
+            text: "Support Local Business",
+            desc: "When you hire through Tradiy, you’re helping local tradespeople in your area thrive. It’s a win-win for your project and the community.",
+          },
+        ].map((item, idx) => (
+          <div className="image-item" key={idx}>
+            <img src={item.img} alt={item.alt} />
+            <span className="image-text">{item.text}</span>
+            <p>{item.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
